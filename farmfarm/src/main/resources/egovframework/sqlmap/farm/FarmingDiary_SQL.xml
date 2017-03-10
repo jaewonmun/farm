@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="FarmingDiary">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="farmingDiarySerarchVO" type="egovframework.farm.fmd.service.FarmingDiaryDefaultVO"/>
+	
+	<resultMap id="farmingDiary" class="egovframework.farm.fmd.service.FarmingDiaryVO">
+		<result property="farmingDiarySeq" column="FARMING_DIARY_SEQ" columnIndex="1"/>
+		<result property="mbrId" column="MBR_ID" columnIndex="2"/>
+		<result property="itemCode" column="ITEM_CODE" columnIndex="3"/>
+		<result property="diaryDate" column="DIARY_DATE" columnIndex="4"/>
+		<result property="diarySubject" column="DIARY_SUBJECT" columnIndex="5"/>
+		<result property="diaryContent" column="DIARY_CONTENT" columnIndex="6"/>
+		<result property="diaryUploadFile" column="DIARY_UPLOAD_FILE" columnIndex="7"/>
+		<result property="weatherStatus" column="WEATHER_STATUS" columnIndex="8"/>
+		<result property="diaryUploadFileOriginal" column="DIARY_UPLOAD_FILE_ORIGINAL" columnIndex="9"/>
+	</resultMap>
+	
+	<insert id="farmingDiaryDAO.insertFarmingDiary_S">
+		<![CDATA[
+			INSERT INTO FARMING_DIARY 
+				( FARMING_DIARY_SEQ
+				  , MBR_ID
+				  , ITEM_CODE
+				  , DIARY_DATE
+				  , DIARY_SUBJECT
+				  , DIARY_CONTENT
+				  , DIARY_UPLOAD_FILE
+				  , WEATHER_STATUS
+				  , DIARY_UPLOAD_FILE_ORIGINAL
+				 )
+			VALUES ( FARMING_DIARY_SEQ.NEXTVAL
+				  , #mbrId#
+				  , #itemCode#
+				  , to_date(#diaryDate#,'YYYYMMDD')
+				  , #diarySubject#
+				  , #diaryContent#
+				  , #diaryUploadFile#
+				  , #weatherStatus#
+				  , #diaryUploadFileOriginal#
+				   )
+		]]>
+	</insert>
+	
+	<update id="farmingDiaryDAO.updateFarmingDiary_S">
+		<![CDATA[
+			UPDATE FARMING_DIARY
+			SET ITEM_CODE=#itemCode#
+				, DIARY_DATE= to_date(#diaryDate#,'YYYYMMDD')
+				, DIARY_SUBJECT=#diarySubject#
+				, DIARY_CONTENT=#diaryContent#
+		]]>
+		<isNotEmpty property="diaryUploadFileOriginal">
+				, DIARY_UPLOAD_FILE=#diaryUploadFile#
+				, DIARY_UPLOAD_FILE_ORIGINAL = #diaryUploadFileOriginal#
+		</isNotEmpty>
+						WHERE FARMING_DIARY_SEQ=#farmingDiarySeq#
+		
+	</update>
+	
+	<delete id="farmingDiaryDAO.deleteFarmingDiary_S">
+		<![CDATA[
+			DELETE FROM FARMING_DIARY 
+						WHERE FARMING_DIARY_SEQ=#farmingDiarySeq#
+				]]>
+	</delete>
+	
+	<select id="farmingDiaryDAO.selectFarmingDiary_S" resultMap="farmingDiary">
+		<![CDATA[
+			SELECT
+				FARMING_DIARY_SEQ
+				, MBR_ID
+				, ITEM_CODE
+				, DIARY_DATE
+				, DIARY_SUBJECT
+				, DIARY_CONTENT
+				, DIARY_UPLOAD_FILE_ORIGINAL
+				, WEATHER_STATUS
+				
+			FROM FARMING_DIARY
+						WHERE FARMING_DIARY_SEQ=#farmingDiarySeq#
+				]]>
+	</select>
+	
+	<select id="farmingDiaryDAO.selectFarmingDiaryListForMain" resultMap="farmingDiary">
+		<![CDATA[
+			SELECT
+				FARMING_DIARY_SEQ
+				, MBR_ID
+				, ITEM_CODE
+				, TO_CHAR(DIARY_DATE,'YY"년 "MM"월 "DD"일"') as "DIARY_DATE"
+				, DIARY_SUBJECT
+				, DIARY_CONTENT
+				, DIARY_UPLOAD_FILE
+				, WEATHER_STATUS
+				, DIARY_UPLOAD_FILE_ORIGINAL
+				
+			FROM FARMING_DIARY
+			WHERE ITEM_CODE=#itemCode#
+				AND MBR_ID=#mbrId#
+			ORDER BY DIARY_DATE DESC
+				]]>
+	</select>
+	
+	<select id="farmingDiaryDAO.selectFarmingDiaryList_D" parameterClass="java.util.Map"  resultClass="egovMap">
+				SELECT DISTINCT
+								F.FARMING_DIARY_SEQ
+								, F.MBR_ID
+								, F.ITEM_CODE
+								, TO_CHAR(F.DIARY_DATE,'YYYYMMDD') as "DIARY_DATE"
+								, F.DIARY_SUBJECT
+								, F.DIARY_CONTENT
+								, F.DIARY_UPLOAD_FILE_ORIGINAL
+								, I.SCODE
+						FROM FARMING_DIARY F JOIN CROPS C
+						ON(F.ITEM_CODE = C.ITEM_CODE)
+						JOIN ITEM I
+						ON(I.ITEM_CODE = C.ITEM_CODE)
+				WHERE 1=1
+		<isNotEmpty property="searchMode">
+			<isEqual property="searchMode" compareValue="MONTH">
+				<isNotEmpty property="searchMonth">
+					<isNotEqual property="searchMonth" compareValue="">
+				 	 AND #searchMonth# = TO_CHAR(F.DIARY_DATE,'YYYYMM')
+					</isNotEqual>
+				</isNotEmpty>
+			</isEqual>
+		</isNotEmpty>
+		<isNotEmpty property="mbrId">
+				AND F.MBR_ID = #mbrId#
+		</isNotEmpty>
+	</select>	
+	
+	<select id="farmingDiaryDAO.selectFarmingDiaryListTotCnt_S" parameterClass="farmingDiarySerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM FARMING_DIARY
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				FARMING_DIARY_SEQ = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				MBR_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+	</select>
+	
+	
+	<!-- 리포트 관련 쿼리 -->
+	<!-- 일정  리포트-->
+	<select id="farmingDiaryDAO.selectdiaryReport_S" parameterClass="farmingDiarySerarchVO" resultClass="egovMap">
+				SELECT
+						  TO_CHAR(DIARY_DATE,'YYYYMMDD') as "DIARY_DATE"
+						, DIARY_SUBJECT
+						, DIARY_CONTENT
+						FROM FARMING_DIARY
+				WHERE 1=1
+				<isNotEmpty property="mbrId">
+				AND MBR_ID = #mbrId#
+				</isNotEmpty>
+				<isNotEmpty property="diaryDate">
+				AND TRUNC(DIARY_DATE)=TO_DATE(#diaryDate#,'yy/mm/dd')
+				</isNotEmpty>
+	</select>
+<!-- 
+SELECT
+     FARMING_DIARY."DIARY_DATE" AS FARMING_DIARY_DIARY_DATE,
+     FARMING_DIARY."DIARY_SUBJECT" AS FARMING_DIARY_DIARY_SUBJECT,
+     FARMING_DIARY."DIARY_CONTENT" AS FARMING_DIARY_DIARY_CONTENT
+FROM
+     "FARMING_DIARY" FARMING_DIARY
+where FARMING_DIARY.mbr_id='12345' and  trunc(FARMING_DIARY."DIARY_DATE")=to_date('16/12/07','yy/mm/dd')
+ -->
+	
+
+</sqlMap>

@@ -1,0 +1,20 @@
+@charset "utf-8";
+@import url("/farmfarm/common/css/global.css");
+@import url("/farmfarm/common/css/reset.css");
+@import url("/farmfarm/common/css/util.css"); 
+@import url("/farmfarm/common/css/product.css");
+@import url("/farmfarm/common/css/consummer.css");
+@import url("/farmfarm/common/css/news.css");
+@import url("/farmfarm/common/css/reference.css");
+@import url("/farmfarm/common/css/footer.css");
+@import url("/farmfarm/common/css/home.css");
+@import url("/farmfarm/common/css/community.css");
+@import url("/farmfarm/common/css/media.css");
+@import url("/farmfarm/common/css/colorbox.css");
+@import url("/farmfarm/common/css/distribute.css");
+/*(D) 2015년 검색 개선 : 아래 css 파일 추가  */
+/* @import url("/common/css/schModi_2015.css"); */
+
+/*임시*/
+.homeUrl li{font-size:15px; color:#999; line-height:25px; }
+.homeUrl li a{font-size:15px; display:inline-block; color:blue; text-decoration:underline}

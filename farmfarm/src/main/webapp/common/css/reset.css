@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+	
+	
+/*reset*/	
+/* body, p, ul, dl, ol, h1, h2, h3, h4, h5, h6{margin:0; padding:0; font:12px '돋움', Dotum, Tahoma, sans-serif;}	 */
+dl, ul, ol, li, dd, dt{list-style:none; padding:0; margin:0}	
+img, a img{border:none}
+a, address{font-family:'돋움', Dotum, Tahoma, sans-serif; text-decoration:none; font-style:normal; color:#666}
+#skip, .skip{display:none}
+.idt{text-indent:-9999px; font-size:0; overflow:hidden; *text-indent:0; *line-height:0; *zoom:0}
+.cfix{clear:both}
+table, td { border-spacing:0 !important; border-collapse: collapse; table-layout:fixed}
+input, select, textarea{font:12px '돋움', Dotum, Tahoma, sans-serif}
+
+/* 140323 ADD */
+
+button {margin: 0; padding: 0; overflow: visible; cursor: pointer; border: 0; background: none;white-space:nowrap;}
+button::-moz-focus-inner{padding:0;border:0;}
+*+html button {margin: 0 1px;}
+/* IE7 좌우 margin 1씩 주기. */
+.hidden {position:relative;left:-9999px;overflow:hidden;line-height:0.1%;font-size:0.1%;width:0.1%;height:0.1%;}
+span.empty {width: 0; height: 100%; display: inline-block; vertical-align: middle;}
+*+html span.empty {display: inline;}
+iframe {width: 100%; margin: 0; padding: 0; border: 0;}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="JobProcess">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="jobProcessSerarchVO" type="egovframework.farm.job.service.JobProcessDefaultVO"/>
+	
+	<resultMap id="jobProcess" class="egovframework.farm.job.service.JobProcessVO">
+		<result property="jobSeq" column="JOB_SEQ" columnIndex="1"/>
+		<result property="mbrId" column="MBR_ID" columnIndex="2"/>
+		<result property="itemCode" column="ITEM_CODE" columnIndex="3"/>
+		<result property="farmingProcess" column="FARMING_PROCESS" columnIndex="4"/>
+		<result property="jobProcess" column="JOB_PROCESS" columnIndex="5"/>
+	</resultMap>
+	
+	<insert id="jobProcessDAO.insertJobProcess_S">
+		<![CDATA[
+			INSERT INTO JOB_PROCESS 
+				( JOB_SEQ
+				  , MBR_ID
+				  , ITEM_CODE
+				  , FARMING_PROCESS
+				  , JOB_PROCESS )
+			VALUES ( JOB_PROCESS_SEQ.NEXTVAL
+				  , #mbrId#
+				  , #itemCode#
+				  , #farmingProcess#
+				  , #jobProcess# )
+		]]>
+	</insert>
+	
+	<update id="jobProcessDAO.updateJobProcess_S">
+		<![CDATA[
+			UPDATE JOB_PROCESS
+			SET JOB_SEQ=#jobSeq#
+				, MBR_ID=#mbrId#
+				, ITEM_CODE=#itemCode#
+				, FARMING_PROCESS=#farmingProcess#
+				, JOB_PROCESS=#jobProcess#
+						WHERE JOB_SEQ=#jobSeq#
+				]]>
+	</update>
+	
+	<delete id="jobProcessDAO.deleteJobProcess_S">
+		<![CDATA[
+			DELETE FROM JOB_PROCESS 
+						WHERE JOB_SEQ=#jobSeq#
+				]]>
+	</delete>
+	
+	<select id="jobProcessDAO.selectJobProcess_S" resultMap="jobProcess">
+		<![CDATA[
+			SELECT
+				JOB_SEQ
+				, MBR_ID
+				, ITEM_CODE
+				, FARMING_PROCESS
+				, JOB_PROCESS
+			FROM JOB_PROCESS
+						WHERE JOB_SEQ=#jobSeq#
+				]]>
+	</select>
+	
+	<select id="jobProcessDAO.selectJobProcessList_D" parameterClass="jobProcessSerarchVO" resultClass="egovMap">
+SELECT * FROM (
+	SELECT A.*, ROWNUM RNUM FROM (
+				SELECT
+								JOB_SEQ
+								, MBR_ID
+								, ITEM_CODE
+								, FARMING_PROCESS
+								, JOB_PROCESS
+						FROM JOB_PROCESS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					JOB_SEQ = #searchKeyword#
+				</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					MBR_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+					ORDER BY 
+						JOB_SEQ DESC
+		
+		<![CDATA[					
+	) A WHERE ROWNUM <= #lastIndex#
+)WHERE RNUM > #firstIndex#
+]]>
+	</select>	
+	<select id="jobProcessDAO.selectJobProcessListTotCnt_S" parameterClass="jobProcessSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM JOB_PROCESS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				JOB_SEQ = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				MBR_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+	</select>
+
+</sqlMap>

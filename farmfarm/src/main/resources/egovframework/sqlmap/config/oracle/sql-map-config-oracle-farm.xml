@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<!-- 2009.06.26 : 2단계 기능 추가 (댓글관리, 만족도조사) -->
+<sqlMap resource="egovframework/sqlmap/farm/SellList_SQL.xml"></sqlMap>
+<sqlMap resource="egovframework/sqlmap/farm/Mbr_SQL.xml"></sqlMap>
+<sqlMap resource="egovframework/sqlmap/farm/Crops_SQL.xml"></sqlMap>
+<sqlMap resource="egovframework/sqlmap/farm/Item_SQL.xml"></sqlMap>
+<sqlMap resource="egovframework/sqlmap/farm/FarmingDiary_SQL.xml"></sqlMap>
+<sqlMap resource="egovframework/sqlmap/farm/FarmWeather_SQL.xml"></sqlMap>
+<sqlMap resource="egovframework/sqlmap/farm/JobProcess_SQL.xml"></sqlMap>
+<sqlMap resource="egovframework/sqlmap/farm/EquipmentUse_SQL.xml"></sqlMap>
+<sqlMap resource="egovframework/sqlmap/farm/Equipment_SQL.xml"></sqlMap>
+<sqlMap resource="egovframework/sqlmap/farm/Cpr_SQL.xml"></sqlMap>
+</sqlMapConfig>

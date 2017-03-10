@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Cpr">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="cprSerarchVO" type="egovframework.farm.cpr.service.CprDefaultVO"/>
+	
+	<resultMap id="cpr" class="egovframework.farm.cpr.service.CprVO">
+		<result property="WHSAL_MRKT_CD" column="WHSAL_MRKT_CD" columnIndex="1"/>
+		<result property="WHSAL_MRKT_NM" column="WHSAL_MRKT_NM" columnIndex="2"/>
+		<result property="CPR_CD" column="CPR_CD" columnIndex="3"/>
+		<result property="CPR_NM" column="CPR_NM" columnIndex="4"/>
+	</resultMap>
+	
+	<insert id="cprDAO.insertCpr_S">
+		<![CDATA[
+			INSERT INTO CPR 
+				( WHSAL_MRKT_CD
+				  , WHSAL_MRKT_NM
+				  , CPR_CD
+				  , CPR_NM )
+			VALUES ( #WHSAL_MRKT_CD#
+				  , #WHSAL_MRKT_NM#
+				  , #CPR_CD#
+				  , #CPR_NM# )
+		]]>
+	</insert>
+	
+	<update id="cprDAO.updateCpr_S">
+		<![CDATA[
+			UPDATE CPR
+			SET WHSAL_MRKT_CD=#WHSAL_MRKT_CD#
+				, WHSAL_MRKT_NM=#WHSAL_MRKT_NM#
+				, CPR_CD=#CPR_CD#
+				, CPR_NM=#CPR_NM#
+						WHERE CPR_CD=#CPR_CD#
+				]]>
+	</update>
+	
+	<delete id="cprDAO.deleteCpr_S">
+		<![CDATA[
+			DELETE FROM CPR 
+						WHERE CPR_CD=#CPR_CD#
+				]]>
+	</delete>
+	
+	<select id="cprDAO.selectCpr_S" resultMap="cpr">
+		<![CDATA[
+			SELECT
+				WHSAL_MRKT_CD
+				, WHSAL_MRKT_NM
+				, CPR_CD
+				, CPR_NM
+			FROM CPR
+						WHERE CPR_CD=#CPR_CD#
+				]]>
+	</select>
+	<select id="cprDAO.selectMRKT_D" resultClass="egovMap">
+		<![CDATA[
+			SELECT distinct
+				WHSAL_MRKT_CD
+				, WHSAL_MRKT_NM
+			FROM CPR
+			ORDER BY 2
+		]]>
+	</select>
+	
+	<select id="cprDAO.selectCPR_D" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+				CPR_CD
+				, CPR_NM
+			FROM CPR
+			WHERE WHSAL_MRKT_CD = #whsalMrktCd#
+			ORDER BY 2
+		]]>
+	</select>
+	
+	<select id="cprDAO.selectCprList_D" parameterClass="cprSerarchVO" resultClass="egovMap">
+SELECT * FROM (
+	SELECT A.*, ROWNUM RNUM FROM (
+				SELECT
+								WHSAL_MRKT_CD
+								, WHSAL_MRKT_NM
+								, CPR_CD
+								, CPR_NM
+						FROM CPR
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					WHSAL_MRKT_CD = #searchKeyword#
+				</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					WHSAL_MRKT_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+					ORDER BY 
+						CPR_CD DESC
+		
+		<![CDATA[					
+	) A WHERE ROWNUM <= #lastIndex#
+)WHERE RNUM > #firstIndex#
+]]>
+	</select>	
+	<select id="cprDAO.selectCprListTotCnt_S" parameterClass="cprSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM CPR
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				WHSAL_MRKT_CD = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				WHSAL_MRKT_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+	</select>
+
+</sqlMap>

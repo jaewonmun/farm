@@ -1,0 +1,380 @@
+@charset "utf-8";
+	
+
+
+.tabListIcon {vertical-align:middle; padding-left:8px;}
+.dayNewWrap {padding:31px 0 0 0;}
+.dayNew {position:relative; padding:6px 0 11px 0;}
+.dayNew span {display:inline-block; *display:inline; *zoom:1;}
+.dayNew .dayNewdate {display:inline-block; *display:inline; *zoom:1; font:17px '나눔바른고딕',NanumBarunGothic; color:#ef4f10;}
+.dayNew .dayNewHeader {position:absolute; right:0; top:0; text-align:right; font:17px '나눔바른고딕',NanumBarunGothic; color:#3c3c3c;}
+.dayNewHeader .cPre{display:inline-block; *display:inline; *zoom:1; width:11px; height:19px; background:url(/images/news/page2.gif) 0 0 no-repeat}
+.dayNewHeader .cNext{display:inline-block; *display:inline; *zoom:1; width:11px; height:19px; background:url(/images/news/page2.gif) 100% 0 no-repeat; margin-right:10px;}
+.dayNew .dayNewHeader span{margin:0 14px}
+.dayNew .dayNewHeader span b {font:22px NanumBarunGothic; margin:0 auto; font-weight:bold}
+.hotList h4 a.btnShare {background:url(/images/news/share.gif) no-repeat; margin:5px 0 0 5px; display:inline-block; *display:inline; *zoom:1; width:14px; height:13px; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1; text-align:left}
+.dayliy a, .dayliy h4{text-overflow:ellipsis; overflow:hidden; white-space:nowrap}
+
+.dayliy a:hover{color:blue!important; text-decoration:underline}
+.dayliy a.dayLink {text-overflow:inherit; overflow:inherit; white-space:inherit;}
+.dayliy .hot{border:3px solid #00a9ff;}
+.dayliy .hot .hotLine {border:1px solid #0090da; padding:18px 16px; width:680px;}
+.dayliy .hot .hotLine h3 img {border:none;}
+.dayliy .hot .hotImg{position:absolute; left:0; top:15px}
+.dayliy .hot .hotLine .hotBox {padding-top:15px; position:relative;}
+.dayliy .hot .hotList{padding:0 0 0 267px; position:relative;}
+.dayliy .hot .hotList h4{padding:0; color:#e86702; font:21px '나눔바른고딕',NanumBarunGothic , Tahoma; height:30px; padding:5px 0 0 0; font-weight:bold}
+.dayliy .hot .hotList h4.newsHtit {display:inline-block; *display:inline; *zoom:1; vertical-align:middle;}
+.dayliy .hot .hotList p{font-size:12px; color:#666; line-height:16px; margin-bottom:10px}
+.dayliy .hot .hotList ul li {position:relative;}
+.dayliy .hot .hotList ul li a.hotIssueTxt {display:inline-block; *display:inline; *zoom:1; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;  font-size:14px; color:#434862; font-weight:bold; height:25px; line-height:25px; vertical-align:middle;}
+.dayliy .hot .hotList ul li a.btnShare, .dayliy .both .bth p span a.btnShare, .dayliy .list .thum a.btnShare {background:url(/images/news/share.gif) no-repeat; margin:0 0 0 5px; display:inline-block; *display:inline; *zoom:1; width:14px; height:13px; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1; text-align:left; line-height:25px; vertical-align:middle;}
+.dayliy .both .bth ul li a.btnShare, .dayliy .list ul li a.btnShare {background:url(/images/news/share.gif) no-repeat; margin:0; display:inline-block; *display:inline; *zoom:1; width:14px; height:13px; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1; text-align:left; line-height:25px; vertical-align:middle;}
+
+.hotLine .bx-controls-direction {position:absolute; right:216px; top:18px;}
+
+.dayliy .hot .hotList ul li span{position:absolute; right:0; top:0; font-size:12px; color:#999; font-weight:100; display:block; height:25px; line-height:25px}
+.dayliy .both{border-top:1px solid #ddd; position:relative; padding:10px 0 0 0; height:280px; margin-top:20px}
+.dayliy .both .bth.left{width:360px; position:absolute; left:0; top:12px;}
+.dayliy .both .bth.right{width:330px; position:absolute; right:0; top:23px; text-align:left}
+.dayliy .both .bth p, .dayliy .both .bth div.fn02 {width:148px; float:left; padding:12px 0 0 0; color:#666; margin:0 0 15px 0}
+.dayliy .both .bth p.fn, .dayliy .both .bth div.fn{width:180px; float:left; padding:12px 0 0 0; color:#666; margin:0 0 15px 0}
+.dayliy .both .bth p span, .dayliy .both .bth div span {display:block; width:148px; position:relative;}
+.dayliy .both .bth ul{clear:both;}
+.dayliy .both .bth ul li{width:330px; position:relative;}
+.dayliy .both .bth ul li a{width:240px; font-size:13px; color:#434862; font-weight:bold; display:inline-block; overflow:hidden; height:20px; line-height:20px; vertical-align:middle;}
+.dayliy .both .bth ul li span{position:absolute; right:0; top:0; font-size:12px; color:#999; font-weight:100; display:block; height:20px; line-height:20px}
+.dayliy .list{border-top:1px solid #ddd; position:relative; padding:15px 0 0 0; height:170px}
+.dayliy .list h3.listHd {display:inline-block; *display:inline; *zoom:1;}
+.dayliy .list h3.listHd img {vertical-align: middle;}
+.dayliy .list .listCate, .dayliy .list .listCate a {color:#b0b0b0; font:11px '돋움', Dotum, Tahoma; vertical-align: text-bottom;}
+.dayliy .list .listCate {padding-left:20px; padding-bottom:20px; line-height:18px;}
+.dayliy .list .listCate a:hover {text-decoration:underline; color:#b0b0b0!important;}
+.dayliy .list .thum{position:absolute; left:0; top:40px}
+.dayliy .list .thum .thumTxt {width:148px; font-size:12px; color:#666}
+.dayliy .list ul{padding:5px 0 0 170px;}
+.dayliy .list ul li {position:relative;}
+.dayliy .list ul li a{max-width:450px; display:inline-block; *display:inline; *zoom:1; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; font-size:13px; color:#434862; font-weight:bold; height:23px; line-height:23px;  vertical-align:middle;}
+.dayliy .list ul li span{position:absolute; right:0; top:0; font-size:12px; color:#999; font-weight:100; display:block; height:23px; line-height:23px }
+
+.thNewsTab{position:relative; width:100%; margin:10px 0; height:32px}
+.thNewsTab li {display:inline-block; width:89px; height:34px; background:url(/images/news/themeTab.gif) 0 0 no-repeat; float:left; padding-left:1px}
+.thNewsTab li a{display:inline-block; width:100%; height:26px; padding:8px 0 0 0; color:#8c8c8c; text-align:center; background:url(/images/news/themeTab.gif) right 0 no-repeat; font:14px '나눔바른고딕',NanumBarunGothic , Tahoma}
+*+html .thNewsTab li a{display:inline;}
+.thNewsTab li:hover,
+.thNewsTab li:focus,
+.thNewsTab li.on{background-position:-5px -68px;}
+.thNewsTab li:hover a,
+.thNewsTab li:focus a,
+.thNewsTab li.on a{color:#fff; background-position:-5px -68px;}
+.thNewsTab li.first {background-position: 0 -34px; padding-left:0}
+.thNewsTab li.first a{background-position: 0 -34px}
+.thNewsTab li.first.on, .thNewsTab li.first:hover, .thNewsTab li.first:focus {background-position: 0 -68px}
+.thNewsTab li.first.on a, .thNewsTab li.first:hover a, .thNewsTab li.first:focus a{background-position: 0 -68px}
+.thNewsTab li.last {background-position: right -34px}
+.thNewsTab li.last a{background-position: right -34px}
+.thNewsTab li.last.on, .thNewsTab li.last:hover, .thNewsTab li.last:focus {background-position: right -68px}
+.thNewsTab li.last.on a, .thNewsTab li.last:hover a, .thNewsTab li.last:focus a{background-position: right -68px}
+.thNewsTab li.middle {background-position: right top}
+.thNewsTab li.middle a{background-position: right top}
+.thNewsTab li.middle.on, .thNewsTab li.middle:hover, .thNewsTab li.middle:focus {background-position: right -102px}
+.thNewsTab li.middle.on a, .thNewsTab li.middle:hover a, .thNewsTab li.middle:focus a{background-position: right -102px}
+.themeSub{width:709px; height:20px; padding:7px 0 0 10px; background:url(/images/news/themeSub.gif) no-repeat; margin:-8px 0 18px 0}
+.themeSub > ul > li > a:first-child {font-size: 12px;}
+.themeSub li, .thNewsTab .themeSub li a{display:inline; font-size:11px; color:#333}
+.themeSub li a:hover, .themeSub li a:active, .themeSub li a:focus, .themeSub li a.on {color:#0556c4; font-weight:bold;}
+.themeSub li a.normal:hover, .themeSub li a.normal:active, .themeSub li a.normal:focus, .themeSub li a.normal_on {font-weight:normal; color:#0556c4;}
+.themeSub li a img {vertical-align:middle;}
+
+.newsTotal{width:250px}
+.newsTotal02 {width:100%;}
+.thNewsSearch{position:absolute; top: 83px; right:15px}
+.thNewsSearch02 {top:5px; right:0;}
+.thNewsSearch.tit {position: static; float: right; padding: 10px 0 0 0;}
+.thNewsSearch .btnDvSearh{color:#07989b; text-decoration:underline; font-weight:bold}
+.thNewsSearch .btnDvSearh img{margin:0 5px}
+.thNewsSearch .reflesh{font-size:11px}
+.searchDv{display:none; width:370px; border:1px solid #007c7e; background:#fff; position:absolute; right:10px; z-index:10; margin-top:25px}
+.searchDv .inner{position:relative; padding:15px; }
+.searchDv .inner .dvClose{position:absolute; right:3px; top:3px}
+.searchDv .btnDate{margin-bottom:10px}
+.searchDv .btnDate li{display:inline-block; margin:6px 0 0 2px}
+.searchDv .btnDate li a{display:inline-block; background:url(/images/product/icoCalendar.gif) left -115px no-repeat; height:19px; line-height:19px; font-size:12px;}
+.searchDv .btnDate li a span{display:inline-block; background:url(/images/product/icoCalendar.gif) right -115px no-repeat; padding:1px 12px 0 8px; margin-left:4px; color:#878787; height:18px}
+.searchDv .btnDate li a.on{background:url(/images/product/icoCalendar.gif) left -96px}
+.searchDv .btnDate li a.on span{background:url(/images/product/icoCalendar.gif) right -96px; color:#fff}
+.searchDv .datepic img{vertical-align:middle; margin:0 4px}
+
+
+/*slide*/
+.slideGo img{vertical-align:middle}
+.slideDv{display:none; position:absolute; left:0; top:0; z-index:110; width:730px; height:750px}
+.slideDv .inner{border:5px solid #1f5cb5; background:#fff; height:100%; position:relative}
+.slideDv .inner .header{height:30px; background:#1f5cb5; *width:720px; text-align:right}
+.slideDv .help{position:absolute; right:60px; top:32px; z-index:115; display:none}
+.slideDv .inner .prev, .slideDv .inner .next{position:absolute; top:320px}
+.slideDv .inner .prev{left:0}
+.slideDv .inner .next{right:0}
+.wSlide{position:relative; margin-top:-25px}
+.weekNews{margin:30px 0}
+.weekNews .weekMent{margin-bottom:20px; color:#5d5d5d; font:12px '나눔바른고딕',NanumBarunGothic , Tahoma; }
+.weekNews .weekMent strong{color:#e76900}
+.weekNews .weekMetapo{height:218px; border:1px solid #ccc; position:relative; padding:0 27px}
+.weekNews .weekMetapo .thumb{position:absolute; left:27px; top:0}
+.weekNews .weekMetapo .weekSumry{padding:10px 0 10px 328px}
+.weekNews .weekMetapo .weekSumry h4{font:17px '나눔바른고딕',NanumBarunGothic , Tahoma; font-weight:bold; color:#333; border-bottom:1px solid #ddd; padding:10px 0}
+.weekNews .weekMetapo .weekSumry p{color:#5d5d5d; padding:10px 0 0 0}
+.weekNews .weekMetapo .weekSumry span{font-size:11px; color:#aaa; position:absolute; right:35px; bottom:10px}
+.weekNews .weekMetapo .weekSumry ul  {margin-top:10px}
+.weekNews .weekMetapo .weekSumry ul li a{display:block; width:335px; line-height:26px;  text-overflow:ellipsis; overflow:hidden; white-space:nowrap;}
+.weekNews .weekMetapo .weekSumry ul li a img{display:inline; margin-right:5px}
+
+/*언론사별 슬라이드*/
+.press{position:relative; margin-top:40px}
+.pressWrap{overflow: hidden; height:47px; border:1px solid #e1e1e1}
+.pressWrap ul{display:block; text-align: center; font-size: 0; zoom: 1;}
+.pressWrap ul:after {content:""; display: block; clear: both;}
+.pressWrap li{position:relative; display:inline-block; width:143px; height:47px; border-bottom: 1px solid #; vertical-align:top;}
+.pressWrap li.last {border-bottom: 0;}
+.pressWrap li.non a {border:0;}
+*+html .pressWrap li{display: inline;}
+.pressWrap li a{display:block; margin: 5px 0; border-right:1px solid #ebeced; width:142px; height:38px; text-indent:-9999px;}
+.pressWrap li a img {border-right: 1px solid #ebeced;}
+.pressWrap li.nongmin a {background:url(/images/news/ban01_off.png) no-repeat;}
+.pressWrap li.nongmin a.on, .pressWrap li.nongmin a:hover {background:url(/images/news/ban01.png) no-repeat;}
+.pressWrap li.nongchook a {background:url(/images/news/ban02_off.png) no-repeat;}
+.pressWrap li.nongchook a.on, .pressWrap li.nongchook a:hover {background:url(/images/news/ban02.png) no-repeat;}
+.pressWrap li.chooksan a {background:url(/images/news/ban03_off.png) no-repeat;}
+.pressWrap li.chooksan a.on, .pressWrap li.chooksan a:hover {background:url(/images/news/ban03.png) no-repeat;}
+.pressWrap li.chooksanNews a {background:url(/images/news/ban12_off.png) no-repeat;}
+.pressWrap li.chooksanNews a.on, .pressWrap li.chooksanNews a:hover {background:url(/images/news/ban12.png) no-repeat;}
+.pressWrap li.gukmin a {background:url(/images/news/ban04_off.png) no-repeat;}
+.pressWrap li.gukmin a.on, .pressWrap li.gukmin a:hover {background:url(/images/news/ban04.png) no-repeat;}
+.pressWrap li.nail a {background:url(/images/news/ban05_off.png) no-repeat;}
+.pressWrap li.nail a.on, .pressWrap li.nail a:hover {background:url(/images/news/ban05.png) no-repeat;}
+.pressWrap li.donga a {background:url(/images/news/ban06_off.png) no-repeat;}
+.pressWrap li.donga a.on, .pressWrap li.donga a:hover {background:url(/images/news/ban06.png) no-repeat;}
+.pressWrap li.munwha a {background:url(/images/news/ban07_off.png) no-repeat;}
+.pressWrap li.munwha a.on, .pressWrap li.munwha a:hover {background:url(/images/news/ban07.png) no-repeat;}
+.pressWrap li.mail a {background:url(/images/news/ban08_off.png) no-repeat;}
+.pressWrap li.mail a.on, .pressWrap li.mail a:hover {background:url(/images/news/ban08.png) no-repeat;}
+.pressWrap li.edaily a {background:url(/images/news/ban09_off.png) no-repeat;}
+.pressWrap li.edaily a.on, .pressWrap li.edaily a:hover {background:url(/images/news/ban09.png) no-repeat;}
+.pressWrap li.chosun a {background:url(/images/news/ban10_off.png) no-repeat;}
+.pressWrap li.chosun a.on, .pressWrap li.chosun a:hover {background:url(/images/news/ban10.png) no-repeat;}
+.pressWrap li.jungang a {background:url(/images/news/ban11_off.png) no-repeat;}
+.pressWrap li.jungang a.on, .pressWrap li.jungang a:hover {background:url(/images/news/ban11.png) no-repeat;}
+.pressWrap li.hanguckeco a {background:url(/images/news/ban13_off.png) no-repeat;}
+.pressWrap li.hanguckeco a.on, .pressWrap li.hanguckeco a:hover {background:url(/images/news/ban13.png) no-repeat;}
+.pressWrap li.hankyoreh a {background:url(/images/news/ban14_off.png) no-repeat;}
+.pressWrap li.hankyoreh a.on, .pressWrap li.hankyoreh a:hover {background:url(/images/news/ban14.png) no-repeat;}
+.pressWrap li.hanguck a {background:url(/images/news/ban15_off.png) no-repeat;}
+.pressWrap li.hanguck a.on, .pressWrap li.hanguck a:hover {background:url(/images/news/ban15.png) no-repeat;}
+
+.pressWrap li.geung{background-position:-286px 0}
+
+
+
+
+
+
+.pressWrap li.hanguck{background-position:-572px -94px}
+.pressWrap li.hd{display:none}
+.pressWrap li span{display:block; width:27px; height:27px; position:absolute; left:0; top:0; background:url(/images/news/langking.gif) no-repeat; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+.pressWrap li span.lank1{background-position:0 0}
+.pressWrap li span.lank2{background-position:-27px 0}
+.pressWrap li span.lank3{background-position:-54px 0}
+.pressWrap li span.lank4{background-position:-81px 0}
+.press .flip{border-top:1px solid #e1e1e1; margin-top:10px; clear:both}
+.press .flip a{display:block; width:36px; height:12px; background:url(/images/news/pressBtn.gif) no-repeat; margin:0 auto; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+.press .flip a.on{background-position:0 -12px}
+.pressType .newsContent {border-bottom: 1px solid #e1e1e1;min-height: 85px;padding: 15px 20px 15px 15px;position: relative;}
+.pressType .newsContent .pic {float: left;width: 140px;height: 85px;border: 1px solid #d3d3d3;padding: 1px;}
+.pressType .column .writer {position: absolute; bottom: 0; right: 0; margin: 0; color: #008fff;font: 11px '돋움', Dotum, Tahoma;}
+.pressType .column .columnTit{display:inline-block; *display:inline-block}
+.pressType .column .columnTit a {font: 16px Dotum; letter-spacing: -1px;color:#000063;font-weight: bold;}
+.pressType .column .pressShare, .pressShare{display:inline; *display:inline-block; position:relative}
+.pressType .column .pressShare .btnShare, .pressShare .btnShare{background:url(/images/news/share.gif) no-repeat; margin:5px 0 0 5px; display:inline-block; *display:inline; *zoom:1; width:14px; height:13px; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1; text-align:left}
+.pressType .column .share, .pressShare .share {display:none; position:absolute; left:5px; top:18px;width:57px; height:29px; background:url(/images/news/shareBg.gif) no-repeat; text-align:inherit; z-index:11;}
+.pressShare .share2 {top:14px;}
+.pressShare .share3 {top:13px; left:0;}
+.pressShare .share4 {top:13px; left:5px;}
+.pressType .column .share{text-align:left}
+.pressType .column .share a, .pressShare .share a{margin:4px 0 0 4px}
+
+
+.smryType .newsContent .column .columnTit2 {float:left;}
+.pressType .column .pressShare2 {float:left;}
+.pressShare3 {display:inline-block; *display:inline; *zoom:1; vertical-align:middle;}
+.pressShare3 .btnShare {margin:0;}
+.smryType .column .columnTxt2, .tabClear {clear:both;}
+
+
+/* 홈 */
+
+.contentCm2 h3.newsTit {display:inline-block; *display:inline; *zoom:1; padding:7px 0 11px 14px;}
+.contentCm2 h3.newsTit2 {display:inline-block; *display:inline; *zoom:1; padding:0 0 0 14px;}
+
+.titleWrap {padding:30px 0 10px 0;}
+.titleWrap2 {padding:25px 0 10px 0; position:relative;}
+
+.titDate {display:inline-block; *display:inline; *zoom:1; padding:0 0 11px 5px; font:11px '돋움', Dotum, Tahoma; color:#aaaaaa;}
+.newsMore {position:absolute; right:4px; top:20px; color:#1f5cb5; font:12px '돋움', Dotum, Tahoma; vertical-align:middle; font-weight:bold;}
+.newsMore img, .titleWrap .newsMore2 img {vertical-align:middle; padding:0 0 2px 4px;}
+.newsMore:hover {text-decoration:underline;}
+
+/* 메인뉴스 */
+.newMain{width:705px; height:247px; position:relative; border-bottom:1px solid #d9d9d9;}
+.newMain .newtab{padding:0; width:150px; *width:auto; display:inline-block; *display:inline; *zoom:1; float:left}
+.newMain .newtab a.tab {width:150px; height:34px; text-indent: -9999px; *text-indent:0; *line-height:0; display:block; position:absolute}	
+.newMain .news1 a.tab1 {background:url(/images/news/tab.gif) no-repeat; left:290px}
+.newMain .news1.on a.tab1 {background:url(/images/news/tab.gif) 0 -34px no-repeat}
+.newMain .news2 a.tab2 {background:url(/images/news/tab.gif) -150px 0 no-repeat; left:440px}
+.newMain .news2.on a.tab2 {background:url(/images/news/tab.gif) -150px -34px no-repeat}	
+.newMain .newtab .newNt{display:none; position:absolute; left:290px; top:55px}
+.newMain .news2 .newNt{display:none; position:absolute; left:290px; top:55px}
+.newMain .newtab.on .newNt,
+.newMain .newtab.on .thumbImg{display:block}
+.newMain .newtab.on .thumbImg .thbImg {width:268px; height:227px; position:relative; border: 1px solid #d3d3d3;}
+.newMain .newtab.on .thumbImg .blackMask {background:url(/images/news/blackMask.png) no-repeat; width:237px; height:27px; padding:12px 20px 11px 9px; font:12px '돋움', Dotum, Tahoma; color:#ffffff; 
+position:absolute; bottom:0; left:1px; line-height:1.3em;}
+.newMain .newtab .thumbImg{display:none}
+
+.sideNews {position:relative}
+.sideNews .sideTab li{display:inline-block; *display:inline; *zoom:1; float:left; width:49px; height:28px; border-right:1px solid #ccc; border-bottom:1px solid #aaa; border-top:1px solid #ccc}
+.sideNews .sideTab li:first-child{border-left:1px solid #ccc}
+.sideNews .sideTab li a{display:inline-block; *display:inline; *zoom:1; width:49px; height:28px; line-height:28px; text-align:center}
+.sideNews .sideTab li.on{border:1px solid #aaa; border-bottom:1px solid #fff; }
+.sideNews .sideTab li.on a{color:#000}
+.sideNews .bx-pager{display:none}
+.sideNews .bx-controls-direction a{padding:0; background: url(/images/news/page.gif) no-repeat; width:8px; height:13px; text-indent: -9999px; z-index:9999; display:block; position:absolute; top:60px}	
+.sideNews .bx-controls-direction a.bx-prev{background: url(/images/news/page.gif) left 0 no-repeat; left:-5px}
+.sideNews .bx-controls-direction a.bx-next{background: url(/images/news/page.gif) right 0 no-repeat; right:0}
+.sideCont {padding:10px 0 15px 0; background:#fcfcfc;}
+
+
+.dscpt p {padding:16px 0 30px 0; color:#999999; font:12px '돋움', Dotum, Tahoma;}
+.dscpt .newsComment li {position:relative;}
+.dscpt .newsComment li a.newTxt {font:12px '돋움', Dotum, Tahoma; color:#5e5e5e; width:220px; background:url(/images/global/dot.gif) 0 8px no-repeat;
+padding-left:10px; display:block; line-height:20px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#5e5e5e; font:12px '돋움', Dotum, Tahoma; line-height:1.6em;}
+.dscpt .newsComment li a.newTxt span {display:block; position:absolute; right:0; top:0; color:#aaaaaa; font:11px '돋움', Dotum, Tahoma; line-height:1.6em;}
+
+.weekTrend {border:5px solid #f9f9f9; padding:15px;}
+.weekTrend .trend {width:154px; vertical-align:top; display:inline-block; *display:inline; *zoom:1;}
+.weekTrend .trendPd {padding-right:10px;}
+.weekTrend .trend h4 {color:#000063; font:12px '돋움', Dotum, Tahoma; font-weight:bold;}
+
+
+.titleWrap {position:relative;}
+.titleWrap .newsMore2 {position:absolute; right:15px; bottom:11px;}
+.newsIssue {height:108px; text-align: center; font-size: 0;}
+.newsIssue a {width: 24%; min-height: 154px; margin: 0 0 0 -1px; display:inline-block; *display:inline; *zoom:1; vertical-align: top; text-align: center; border: 1px solid #d3d3d3;}
+.newsIssue a:first-child {margin-left: 0;}
+.newsIssue a img {max-width: 100%;}
+.newsIssue a p {padding: 10px; text-align: left; color: #000063; font-weight: bold;}
+.newsIssue .issueLine {height:102px;}
+
+.sideTit {border-bottom:1px solid #d9d9d9; padding-top:34px; position:relative;}
+.sideTit2 {border:none; padding-top:26px;}
+.sideTit h4 {display:inline-block;}
+.newsMore3 {position:absolute; right:0; top:34px;}
+.newsMore4 {position:absolute; right:0; top:25px;}
+.newsMore3 img, .newsMore4 img, .newsMore5 img, .newsMore6 img, .newsMore7 img {padding:0 0 2px 5px; vertical-align:middle;}
+.newspaper {padding:8px 0 20px 8px; text-align:center;}
+.sideTit .mask {position:absolute; bottom:25px; left:8px; background:url(/images/news/blackMask02.png) no-repeat; display:block; width:201px; height:39px; padding-top:11px; font:12px '돋움', Dotum, Tahoma; color:#fff; text-align:center;}
+.imgWrap {position:relative;}
+.blackMask03 {background:url(/images/news/blackMask03.png) no-repeat; display:block; width:239px; height:36px; position:absolute; bottom:0; left:0; padding:9px 0 0 11px; color:#fff;}
+.sideCont a {font:12px '돋움', Dotum, Tahoma; color:#5e5e5e; background:url(/images/global/dot.gif) 0 8px no-repeat;
+padding-left:10px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#5e5e5e; font:12px '돋움', Dotum, Tahoma; line-height:1.8em; margin:0 15px;}
+
+
+/*------------------------------------- 이슈&동양홈 -------------------------------------*/
+.issueCt {position:relative; min-height:275px;}
+.issueMap {position:absolute; left:0; top:0;}
+.issueSns {padding-left:398px;}
+.issueMapEx {width:378px; height:224px; border: 1px solid #e1e1e1;}
+.issueMapTxt {color:#08969a; font:12px '돋움', Dotum, Tahoma; display:block; padding-top:7px;}
+.issueMapTxt b {color:#08969a; font:11px '돋움', Dotum, Tahoma; font-weight:normal;}
+.issueHd {padding-bottom:10px;}
+.newsSnsWrap {width:290px; height:204px; overflow-y:auto; padding:10px 15px; border:1px solid #e1e1e1;}
+.newsSns {position:relative; min-height:85px; padding: 15px 0 32px; border-bottom:1px solid #f1f1f1;}
+.newsSns img {position:absolute; left:0; top:15px;}
+.pdTop12 img {position:absolute; left:0; top:12px;}
+.newsSns .snsMessage {padding-left:55px; position:relative;}
+.newsSns .snsMessage .name {color:#333333; font:12px '돋움', Dotum, Tahoma;}
+.newsSns .snsMessage .name b {color:#08969a; font-weight:bold;}
+.newsSns .snsMessage .day {font:11px '돋움', Dotum, Tahoma; color:#999999; position:absolute; right:0; bottom: -20px;}
+.snsMessage p {font:11px '돋움', Dotum, Tahoma; color:#555555; line-height:18px; padding-top:10px;}
+
+.trendWrap {position:relative;}
+.trendWrap:after {content:""; display: block; clear: both;}
+.trendWrap > div {float: left;}
+.trendWrap > div:first-child {margin: 0 14px 0 0;}
+.trend01 {width:565px;}
+.trend01 .lineBlue {overflow: hidden; border-top:1px solid #1f5cb5; position:relative; font-size: 0; text-align: center;}
+.trend01 .lineBlue .columnNews {display: inline-block; float: none; margin: 0 0 0 -1px; font-size: 12px; text-align: left;}
+.trend01 .lineBlue .columnNews:first-child {margin: 0;}
+/*
+.column1 {position:absolute; left:0; top:0;}
+.column2 {position:absolute; left:141px; top:0;}
+.column3 {position:absolute; left:282px; top:0;}
+.column4 {position:absolute; left:423px; top:0;}
+*/
+.trend02 {width:141px;}
+.trend02 .lineOrange {border-top:1px solid #e48e00;}
+.columnNews {height: 175px; overflow: hidden; float: left; padding:10px; width:120px; margin-left: 1px; border:1px solid #e1e3e3;}
+.columnNews span {display:block;}
+.columnNews .columnTitle {color:#1f5cb5; padding-top:9px;}
+.columnNews a {height: 28px; overflow: hidden; color:#333333; font:12px '돋움', Dotum, Tahoma; font-weight:bold; padding-top:8px; display:block;}
+.columnNews .columnDate {color:#999999; font:11px '돋움', Dotum, Tahoma; padding-top:10px;}
+.issueSlide {background:url(/images/news/issueBg.png) no-repeat; width:525px; height:299px; padding:16px 21px 0 32px;}
+.issueSdTxt {position:absolute; min-height:25px;}
+.issueT {position:absolute; left:0; top:0; color:#333333; font:17px '나눔바른고딕',NanumBarunGothic, Tahoma; font-weight:bold;}
+.issueD {position:absolute; right:0; top:4px; color:#333333; font:13px '나눔바른고딕',NanumBarunGothic, Tahoma; font-weight:bold;}
+.issueMain {padding-top:50px; text-align:center; position:relative;}
+.issueMain>ul {width:578px; margin:0 auto;}
+.issueEp {padding-top:30px;}
+.issueEp .issueMainTxt {width:334px; height:208px;}
+.issueEp .imgSample {width:172px; height:208px; padding-left:10px;}
+.pagingSlide {background:url(/images/news/control2.png) no-repeat; position:absolute; top:190px; width:21px; height:51px; display:inline-block; *display:inline; *zoom:1; text-indent:-9999px; *text-indent:0; *line-height:0; *font-size:0;}
+.pagingSlide.bf {background-position:left top; left:0;}
+.pagingSlide.nt {background-position:right top; right:0;}
+
+.pageMove {background:url(/images/news/pageMove.gif) right top no-repeat; width:9px; height:9px; display:inline-block; *display:inline; *zoom:1; text-indent:-9999px; *text-indent:0; *line-height:0; *font-size:0;}
+.pageMove.on, .pageMove:hover {background:url(/images/news/pageMove.gif) no-repeat; width:9px; height:9px; display:inline-block; *display:inline; *zoom:1; text-indent:-9999px; *text-indent:0; *line-height:0; *font-size:0;}
+.pageWrap {padding:10px 0 40px 0; text-align:center;}
+
+
+
+/* main-visual */
+.main_visual{width:1000px;height:437px;position:absolute;overflow:hidden;}
+.main_visual ul li{float:left;}
+.issueMain .visual1{position:absolute;}
+/*.main_visual .visual1 .visual_glass{width:602px;height:331px;}*/
+.issueMain .visual1 .visual_issue{position:absolute;margin:15px 0 0 18px;float:left;}
+.issueMain .visual1 .visual_trend{position:absolute;margin:15px 0 0 27px;float:left;}
+.issueMain .visual1 .visual_trend p{margin:5px 0 0 0;font-weight:bold;color:#333;}
+.issueMain .visual1 .visual_trend a p{margin:5px 0 0 0;font-weight:bold;color:#333;}
+.issueMain .visual1 .visual_trend a:hover{color:#333;text-decoration:none;}
+.issueMain .visual1 .visual_date{position:absolute;}
+.issueMain .visual1 .visual_glass{position:absolute;cursor: pointer;}
+
+/*메인 비주얼 slide*/
+
+.main_visual .mainData_prev{width:32px;
+	                      height:51px;
+	                      float:left;
+	                      left:34px;
+	                      background:url('../../images/popup/prev.png') no-repeat;
+	                      text-indent:-9999px;
+	                      top:200px;
+	                      position:absolute;}
+.main_visual .mainData_next{width:32px;
+	                      height:51px;
+	                      float:right;
+	                      right:34px;
+	                      background:url('../../images/popup/next.png') no-repeat;
+	                      text-indent:-9999px;
+	                      top:200px;
+	                      position:absolute;}
+

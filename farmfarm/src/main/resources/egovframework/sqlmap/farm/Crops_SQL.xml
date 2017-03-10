@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Crops">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="cropsSerarchVO" type="egovframework.farm.crop.service.CropsDefaultVO"/>
+	
+	<resultMap id="crops" class="egovframework.farm.crop.service.CropsVO">
+		<result property="mbrId" column="MBR_ID" columnIndex="1"/>
+		<result property="itemCode" column="ITEM_CODE" columnIndex="2"/>
+		<result property="latitude" column="LATITUDE" columnIndex="3"/>
+		<result property="longitude" column="LONGITUDE" columnIndex="4"/>
+		<result property="strokeColor" column="STROKE_COLOR" columnIndex="5"/>
+		<result property="uploadImage" column="UPLOAD_IMAGE" columnIndex="6"/>
+		<result property="uploadImageOriginal" column="UPLOAD_IMAGE_ORIGINAL" columnIndex="7"/>
+	</resultMap>
+	
+	<insert id="cropsDAO.insertCrops_S">
+		<![CDATA[
+			INSERT INTO CROPS 
+				( MBR_ID
+				  , ITEM_CODE
+				  , LATITUDE
+				  , LONGITUDE
+				  , STROKE_COLOR
+				  , UPLOAD_IMAGE
+				  , UPLOAD_IMAGE_ORIGINAL
+				   )
+			VALUES ( #mbrId#
+				  , #itemCode#
+				  , #latitude#
+				  , #longitude#
+				  , #strokeColor#
+				  , #uploadImage#
+				  , #uploadImageOriginal# )
+		]]>
+	</insert>
+	
+	<update id="cropsDAO.updateCrops_S">
+		<![CDATA[
+			UPDATE CROPS
+			SET MBR_ID=#mbrId#
+				, ITEM_CODE=#itemCode#
+		]]>
+		<isNotEmpty property="latitude">
+				, LATITUDE=#latitude#
+		</isNotEmpty>
+		<isNotEmpty property="longitude">
+				, LONGITUDE=#longitude#
+		</isNotEmpty>
+		<isNotEmpty property="strokeColor">
+				, STROKE_COLOR=#strokeColor#
+		</isNotEmpty>
+		<isNotEmpty property="uploadImageOriginal">
+				, UPLOAD_IMAGE=#uploadImage#
+				, UPLOAD_IMAGE_ORIGINAL=#uploadImageOriginal#
+		</isNotEmpty>
+		<![CDATA[
+						WHERE MBR_ID=#mbrId#
+								AND ITEM_CODE=#itemCode#
+				]]>
+	</update>
+	
+	<delete id="cropsDAO.deleteCrops_S">
+		<![CDATA[
+			DELETE FROM CROPS 
+						WHERE MBR_ID=#mbrId#
+								AND ITEM_CODE=#itemCode#
+				]]>
+	</delete>
+	
+	<select id="cropsDAO.selectCrops_S" resultMap="crops">
+		<![CDATA[
+			SELECT
+				MBR_ID
+				, ITEM_CODE
+				, LATITUDE
+				, LONGITUDE
+				, STROKE_COLOR
+				, FILLCOLOR
+				, STROKESTYLE
+				, UPLOAD_IMAGE
+				, UPLOAD_IMAGE_ORIGINAL
+			FROM CROPS
+						WHERE MBR_ID=#mbrId#
+							
+				]]>
+	</select>
+	
+	<select id="cropsDAO.selectCropsList_D" parameterClass="cropsSerarchVO" resultClass="egovMap">
+		SELECT * FROM (
+			SELECT A.*, ROWNUM RNUM FROM (
+						SELECT
+								C.MBR_ID
+								, I.SCODE
+								, C.LATITUDE
+								, C.LONGITUDE
+								, C.STROKE_COLOR
+								, C.UPLOAD_IMAGE
+								, C.UPLOAD_IMAGE_ORIGINAL
+								, C.ITEM_CODE
+						FROM CROPS C join ITEM I ON C.ITEM_CODE = I.ITEM_CODE
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					C.MBR_ID = #searchKeyword#
+				</isEqual>
+					ORDER BY 
+						 C.ITEM_CODE DESC
+				
+				<![CDATA[					
+			) A WHERE ROWNUM <= #lastIndex#
+		)WHERE RNUM > #firstIndex#
+		]]>
+	</select>
+	
+	
+	<select id="cropsDAO.selectCropsListNopage_D" parameterClass="cropsSerarchVO" resultClass="egovMap">
+				SELECT
+								C.MBR_ID
+								, I.SCODE
+								, C.LATITUDE
+								, C.LONGITUDE
+								, C.STROKE_COLOR
+								, C.UPLOAD_IMAGE
+								, C.UPLOAD_IMAGE_ORIGINAL
+								, C.ITEM_CODE
+						FROM CROPS C join ITEM I ON C.ITEM_CODE = I.ITEM_CODE
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					C.MBR_ID = #searchKeyword#
+				</isEqual>
+					ORDER BY 
+						 C.ITEM_CODE DESC
+	</select>	
+		
+	<select id="cropsDAO.selectCropsListTotCnt_S" parameterClass="cropsSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM CROPS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MBR_ID = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ITEM_CODE LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+	</select>
+
+</sqlMap>

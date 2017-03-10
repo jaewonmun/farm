@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="EquipmentUse">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="equipmentUseSerarchVO" type="egovframework.farm.equ.service.EquipmentUseDefaultVO"/>
+	
+	<resultMap id="equipmentUse" class="egovframework.farm.equ.service.EquipmentUseVO">
+		<result property="equipmentId" column="EQUIPMENT_ID" columnIndex="1"/>
+		<result property="mbrId" column="MBR_ID" columnIndex="2"/>
+		<result property="equipmentUseDate" column="EQUIPMENT_USE_DATE" columnIndex="3"/>
+		<result property="equipmentQuantity" column="EQUIPMENT_QUANTITY" columnIndex="4"/>
+		<result property="equipmentUnit" column="EQUIPMENT_UNIT" columnIndex="5"/>
+		<result property="equipmentPrice" column="EQUIPMENT_PRICE" columnIndex="6"/>
+		<result property="equipmentUsePk" column="EQUIPMENT_USE_PK" columnIndex="7"/>
+		<result property="equipmentName" column="EQUIPMENT_NAME" columnIndex="8"/>
+	
+	</resultMap>
+	
+	<insert id="equipmentUseDAO.insertEquipmentUse_S">
+		<![CDATA[
+			INSERT INTO EQUIPMENT_USE 
+				( EQUIPMENT_ID
+				  , MBR_ID
+				  , EQUIPMENT_USE_DATE
+				  , EQUIPMENT_QUANTITY
+				  , EQUIPMENT_UNIT
+				  , EQUIPMENT_PRICE
+				  , EQUIPMENT_USE_PK )
+			VALUES ( #equipmentId#
+				  , #mbrId#
+				  , #equipmentUseDate#
+				  , #equipmentQuantity#
+				  , #equipmentUnit#
+				  , #equipmentPrice#
+				  , EQUIPMENT_USE_SEQ.nextval )
+		]]>
+	</insert>
+	
+	<update id="equipmentUseDAO.updateEquipmentUse_S">
+		<![CDATA[
+			UPDATE EQUIPMENT_USE
+			SET EQUIPMENT_ID=#equipmentId#
+				, MBR_ID=#mbrId#
+				, EQUIPMENT_USE_DATE=#equipmentUseDate#
+				, EQUIPMENT_QUANTITY=#equipmentQuantity#
+				, EQUIPMENT_UNIT=#equipmentUnit#
+				, EQUIPMENT_PRICE=#equipmentPrice#
+				, EQUIPMENT_NAME=#equipmentName#
+						WHERE EQUIPMENT_USE_PK=#equipmentUsePk#
+				]]>
+	</update>
+	
+	<delete id="equipmentUseDAO.deleteEquipmentUse_S">
+		<![CDATA[
+			DELETE FROM EQUIPMENT_USE 
+						WHERE EQUIPMENT_USE_PK=#equipmentUsePk#
+				]]>
+	</delete>
+	
+	<select id="equipmentUseDAO.selectEquipmentUse_S" resultMap="equipmentUse">
+		<![CDATA[
+			SELECT
+				  eu.EQUIPMENT_ID
+				, eu.MBR_ID
+				, eu.EQUIPMENT_USE_DATE
+				, eu.EQUIPMENT_QUANTITY
+				, (select find_codename(eu.EQUIPMENT_UNIT) from dual) EQUIPMENT_UNIT
+				, eu.EQUIPMENT_PRICE
+				, eu.EQUIPMENT_USE_PK
+				, e.EQUIPMENT_NAME
+				
+				FROM EQUIPMENT_USE eu join equipment e
+				on eu.EQUIPMENT_ID = e.EQUIPMENT_ID
+						
+				WHERE EQUIPMENT_USE_PK=#equipmentUsePk#
+				]]>
+	</select>
+	
+	<select id="equipmentUseDAO.selectEquipmentUseList_D" parameterClass="equipmentUseSerarchVO" resultClass="egovMap">
+SELECT * FROM (
+	SELECT A.*, ROWNUM RNUM FROM (
+				SELECT
+     			  eu.EQUIPMENT_ID
+				, eu.MBR_ID
+				, to_char(eu.EQUIPMENT_USE_DATE,'yyyy-mm-dd') as "EQUIPMENT_USE_DATE"
+				, eu.EQUIPMENT_QUANTITY
+				, eu.EQUIPMENT_UNIT
+				, (select find_codename(eu.EQUIPMENT_UNIT) from dual) as EQUIPMENT_UNIT_Nm
+				, eu.EQUIPMENT_PRICE
+                , (select find_codename(e.category) from dual) as "category"
+                , eu.EQUIPMENT_USE_PK
+                , e.EQUIPMENT_NAME
+                
+				FROM EQUIPMENT_USE eu join equipment e
+				on eu.EQUIPMENT_ID = e.EQUIPMENT_ID
+				
+				WHERE 1=1
+				
+				<isNotEmpty prepend="AND" property="searchKeyword">
+					E.CATEGORY = #searchKeyword#
+				</isNotEmpty>
+				
+				<isNotEmpty property="mbrId">
+					AND EU.MBR_ID = #mbrId#
+				</isNotEmpty>
+					ORDER BY 
+						eu.EQUIPMENT_USE_DATE DESC
+									
+		<![CDATA[					
+	) A WHERE ROWNUM <= #lastIndex#
+)WHERE RNUM > #firstIndex#
+]]>
+	</select>	
+	<select id="equipmentUseDAO.selectEquipmentUseListTotCnt_S" parameterClass="equipmentUseSerarchVO" resultClass="int">
+
+			SELECT COUNT(*) totcnt
+			FROM EQUIPMENT_USE eu join equipment e
+				on eu.EQUIPMENT_ID = e.EQUIPMENT_ID
+			WHERE 1=1
+			<isNotEmpty prepend="AND" property="searchKeyword">
+					E.CATEGORY = #searchKeyword#
+			</isNotEmpty>
+				
+			<isNotEmpty property="mbrId">
+				AND EU.MBR_ID = #mbrId#
+			</isNotEmpty>
+
+	</select>
+
+	<select id="equipmentUseDAO.selectEquipmentUseSum" parameterClass="equipmentUseSerarchVO" resultClass="egovMap">
+							SELECT
+			  SUM(eu.EQUIPMENT_QUANTITY) as "equipmentQuantity"
+			, SUM(eu.EQUIPMENT_PRICE) as "equipmentPrice"
+			,(select find_codename(e.category) from dual) as "category"
+			FROM EQUIPMENT_USE eu join equipment e	on eu.EQUIPMENT_ID = e.EQUIPMENT_ID
+			WHERE 1=1
+			<isNotEmpty property="mbrId">
+					AND EU.MBR_ID = #mbrId#
+			</isNotEmpty>
+			<isNotEmpty property="equDate">
+				AND eu.EQUIPMENT_USE_DATE = TO_DATE(#equDate#,'YYYYMMDD')
+			</isNotEmpty>
+			GROUP BY category
+			ORDER BY 
+			  category DESC
+	</select>	
+
+	<!-- 리포트 관련 쿼리 -->
+	<!-- 장비사용 리포트 -->
+	<select id="equipmentUseDAO.selectequipmentReport_S" parameterClass="equipmentUseSerarchVO"	resultClass="egovMap">
+		SELECT
+		E.EQUIPMENT_NAME
+		, EU.EQUIPMENT_USE_DATE
+		, EU.EQUIPMENT_QUANTITY
+		, EU.EQUIPMENT_PRICE
+		, EU.EQUIPMENT_UNIT
+		FROM EQUIPMENT_USE EU JOIN EQUIPMENT E ON EU.EQUIPMENT_ID=E.EQUIPMENT_ID
+		WHERE 1=1
+		<isNotEmpty property="mbrId">
+			AND EU.MBR_ID = #mbrId#
+		</isNotEmpty>
+		<isNotEmpty property="equipmentUseDate">
+			and trunc(eu.equipment_use_date)=to_date(#equipmentUseDate#,'yy/mm/dd')
+		</isNotEmpty>
+	</select>
+<!-- 
+SELECT
+     e.EQUIPMENT_name, eu.equipment_use_date, eu.equipment_quantity, eu.equipment_price, eu.equipment_unit
+FROM
+    EQUIPMENT_USE eu
+    join EQUIPMENT e on eu.EQUIPMENT_id=e.EQUIPMENT_id
+where eu.mbr_id='12345'
+and  trunc(eu.equipment_use_date)=to_date('16/12/07','yy/mm/dd')
+ -->
+
+</sqlMap>

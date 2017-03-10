@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="v_farm_weather_1" language="groovy" pageWidth="500" pageHeight="842" columnWidth="460" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a359f0ee-c56f-40b0-9b3b-f5abaa6656c1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     FARM_WEATHER."WEATHER_STATUS" AS FARM_WEATHER_WEATHER_STATUS,
+     FARM_WEATHER."LOWEST_TEMP" AS FARM_WEATHER_LOWEST_TEMP,
+     FARM_WEATHER."HIGHEST_TEMP" AS FARM_WEATHER_HIGHEST_TEMP,
+     FARM_WEATHER."RAINFALL" AS FARM_WEATHER_RAINFALL,
+     FARM_WEATHER."WEATHER_DATE" AS FARM_WEATHER_WEATHER_DATE
+FROM
+     "FARM_WEATHER" FARM_WEATHER
+WHERE
+     FARM_WEATHER."MBR_ID" = '12345'
+and trunc(FARM_WEATHER."WEATHER_DATE")=to_date('16/12/07','yy/mm/dd')]]>
+	</queryString>
+	<field name="FARM_WEATHER_WEATHER_STATUS" class="java.lang.String"/>
+	<field name="FARM_WEATHER_LOWEST_TEMP" class="java.math.BigDecimal"/>
+	<field name="FARM_WEATHER_HIGHEST_TEMP" class="java.math.BigDecimal"/>
+	<field name="FARM_WEATHER_RAINFALL" class="java.math.BigDecimal"/>
+	<field name="FARM_WEATHER_WEATHER_DATE" class="java.sql.Timestamp"/>
+	<background>
+		<band/>
+	</background>
+	<pageHeader>
+		<band height="21">
+			<staticText>
+				<reportElement mode="Transparent" x="30" y="1" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ff60a722-247f-4223-a1cb-8475533f3f04"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[날씨]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="65" y="20" width="395" height="1" forecolor="#666666" uuid="8e4722da-7df7-4332-95ff-d441d034e4ca"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="0" width="96" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="277039a5-c463-406e-804e-a04dd793bdb2"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[최고온도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="233" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d5478e2e-5714-4595-a6fa-380917e785d0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[최저온도]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="358" y="0" width="101" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c06aba8e-ed10-40b6-87c5-f6d4cd7790dc"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[강수량]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="100" y="20" width="359" height="1" uuid="c4eeff40-cd5e-4673-916d-d80f3855ff81"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="100" y="0" width="92" height="20" uuid="30d8902e-c09a-415a-aef5-2efd39968ad1"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FARM_WEATHER_HIGHEST_TEMP}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="233" y="0" width="92" height="20" uuid="052573e3-4adb-475e-8e77-a508c28b0ddf"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FARM_WEATHER_LOWEST_TEMP}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="358" y="0" width="102" height="20" uuid="f13bb369-134d-4063-8699-2f54c79b49d7"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FARM_WEATHER_RAINFALL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="460" height="13" backcolor="#E6E6E6" uuid="e0862d30-28d3-432d-b8ed-e9dba739d8e3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="417" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="d23add8c-1eb7-4378-a8dd-343ee81d218f"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="4ff6da3a-eb0e-405f-89e1-ec552e3a4509"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

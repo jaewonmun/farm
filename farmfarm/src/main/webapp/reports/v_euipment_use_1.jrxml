@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="v_euipment_use_1" language="groovy" pageWidth="500" pageHeight="842" columnWidth="460" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="07d68b80-ccf4-4786-a4c9-7429d4960eb8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     e.EQUIPMENT_name, eu.equipment_use_date, eu.equipment_quantity, eu.equipment_price, eu.equipment_unit
+FROM
+    EQUIPMENT_USE eu
+    join EQUIPMENT e on eu.EQUIPMENT_id=e.EQUIPMENT_id
+where eu.mbr_id='12345'
+and  trunc(eu.equipment_use_date)=to_date('16/12/07','yy/mm/dd')]]>
+	</queryString>
+	<field name="EQUIPMENT_NAME" class="java.lang.String"/>
+	<field name="EQUIPMENT_USE_DATE" class="java.sql.Timestamp"/>
+	<field name="EQUIPMENT_QUANTITY" class="java.math.BigDecimal"/>
+	<field name="EQUIPMENT_PRICE" class="java.math.BigDecimal"/>
+	<field name="EQUIPMENT_UNIT" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<pageHeader>
+		<band height="23">
+			<staticText>
+				<reportElement mode="Transparent" x="30" y="2" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="4bbdf446-a3d0-4b08-837d-4680e27f45c2"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[장비사용]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="65" y="20" width="395" height="1" forecolor="#666666" uuid="751df491-ff02-4ca5-8266-a0256350898a"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="188" y="0" width="71" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="cb1536f3-dae3-4ac3-a929-ff3a5c6c48fe"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[장비수량]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="278" y="0" width="71" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d1e0cae6-32ee-4748-ac98-fa0187ce3c34"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[장비가격]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="0" width="71" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c62edd78-7f31-406e-888a-cfff936f5c75"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[장비단위]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="0" width="71" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="889340ce-8d98-46bd-848e-f2616c0de933"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[장비이름]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="100" y="20" width="359" height="1" uuid="0c3d327a-1685-48d4-b5f1-bcc66d03cf34"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="100" y="0" width="71" height="20" uuid="e9ca1942-8d4c-4450-8709-24f4ceb19dba"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EQUIPMENT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="189" y="0" width="71" height="20" uuid="75b03b2a-26c0-4b46-856c-8e50538592a5"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EQUIPMENT_QUANTITY}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="279" y="0" width="71" height="20" uuid="159e3841-93ae-4f3c-9ce3-b2d1c27e04ff"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EQUIPMENT_PRICE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="371" y="0" width="71" height="20" uuid="860948f7-7b7a-498c-8a2d-3b70a4bb3a37"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EQUIPMENT_UNIT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="460" height="13" backcolor="#E6E6E6" uuid="23dd0b7e-7c5d-4d79-ac29-dac07c290c19"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="420" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="b6f8142f-6f8d-4e0c-a54b-48c8e0b1ee22"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="4d936167-9b0c-443e-a850-d5eb905b2351"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

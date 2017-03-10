@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Item">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="itemSerarchVO" type="egovframework.farm.item.service.ItemDefaultVO"/>
+	
+	<resultMap id="item" class="egovframework.farm.item.service.ItemVO">
+		<result property="itemCode" column="ITEM_CODE" columnIndex="1"/>
+		<result property="creaDate" column="CREA_DATE" columnIndex="2"/>
+		<result property="lcode" column="LCODE" columnIndex="3"/>
+		<result property="mcode" column="MCODE" columnIndex="4"/>
+		<result property="scode" column="SCODE" columnIndex="5"/>
+		<result property="brandName" column="BRAND_NAME" columnIndex="6"/>
+		<result property="remark" column="REMARK" columnIndex="7"/>
+	</resultMap>
+	
+	<insert id="itemDAO.insertItem_S">
+		<![CDATA[
+			INSERT INTO ITEM 
+				( ITEM_CODE
+				  , CREA_DATE
+				  , LCODE
+				  , MCODE
+				  , SCODE
+				  , BRAND_NAME
+				  , REMARK )
+			VALUES ( ITEM_SEQ.NEXTVAL
+				  , #creaDate#
+				  , #lcode#
+				  , #mcode#
+				  , #scode#
+				  , #brandName#
+				  , #remark# )
+		]]>
+	</insert>
+	
+	<update id="itemDAO.updateItem_S">
+		<![CDATA[
+			UPDATE ITEM
+			SET ITEM_CODE=#itemCode#
+				, CREA_DATE=#creaDate#
+				, LCODE=#lcode#
+				, MCODE=#mcode#
+				, SCODE=#scode#
+				, BRAND_NAME=#brandName#
+				, REMARK=#remark#
+						WHERE ITEM_CODE=#itemCode#
+				]]>
+	</update>
+	
+	<delete id="itemDAO.deleteItem_S">
+		<![CDATA[
+			DELETE FROM ITEM 
+						WHERE ITEM_CODE=#itemCode#
+				]]>
+	</delete>
+	
+	<select id="itemDAO.selectItem_S" resultMap="item">
+		<![CDATA[
+			SELECT
+				ITEM_CODE
+				, CREA_DATE
+				, LCODE
+				, MCODE
+				, SCODE
+				, BRAND_NAME
+				, REMARK
+			FROM ITEM
+						WHERE ITEM_CODE=#itemCode#
+				]]>
+	</select>
+	
+	<select id="itemDAO.selectItemL" resultClass="egovMap">
+		<![CDATA[
+			 SELECT 
+			 	distinct LCODE
+ 				FROM ITEM
+ 				ORDER BY LCODE
+		]]>
+	</select>
+	
+	<select id="itemDAO.selectItemM" resultClass="egovMap">
+		<![CDATA[
+			 SELECT 
+			 	distinct MCODE
+ 				FROM ITEM
+				WHERE LCODE = #lcode#
+ 				ORDER BY MCODE
+		]]>
+	</select>
+	
+	<select id="itemDAO.selectItemS" resultClass="egovMap">
+		<![CDATA[
+			SELECT
+			 	ITEM_CODE, SCODE
+ 				FROM ITEM
+ 				WHERE MCODE = #mcode# AND ITEM_CODE NOT IN
+ 				 (select ITEM_CODE from CROPS where MBR_ID = '12345')
+ 				ORDER BY SCODE
+		]]>
+	</select>
+	
+	<select id="itemDAO.selectItemList_D" parameterClass="itemSerarchVO" resultClass="egovMap">
+SELECT * FROM (
+	SELECT A.*, ROWNUM RNUM FROM (
+				SELECT
+								ITEM_CODE
+								, CREA_DATE
+								, LCODE
+								, MCODE
+								, SCODE
+								, BRAND_NAME
+								, REMARK
+						FROM ITEM
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ITEM_CODE = #searchKeyword#
+				</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					CREA_DATE LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+					ORDER BY 
+						ITEM_CODE DESC
+		
+		<![CDATA[					
+	) A WHERE ROWNUM <= #lastIndex#
+)WHERE RNUM > #firstIndex#
+]]>
+	</select>	
+	<select id="itemDAO.selectItemListTotCnt_S" parameterClass="itemSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM ITEM
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ITEM_CODE = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CREA_DATE LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+	</select>
+
+</sqlMap>

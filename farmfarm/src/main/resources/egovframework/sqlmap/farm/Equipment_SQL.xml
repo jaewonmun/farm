@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Equipment">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="equipmentSerarchVO" type="egovframework.farm.eq.service.EquipmentDefaultVO"/>
+	
+	<resultMap id="equipment" class="egovframework.farm.eq.service.EquipmentVO">
+		<result property="equipmentId" column="EQUIPMENT_ID" columnIndex="1"/>
+		<result property="category" column="CATEGORY" columnIndex="2"/>
+		<result property="equipmentName" column="EQUIPMENT_NAME" columnIndex="3"/>
+		<result property="mbrId" column="MBR_ID" columnIndex="4"/>
+	</resultMap>
+	
+	<insert id="equipmentDAO.insertEquipment_S">
+		<![CDATA[
+			INSERT INTO EQUIPMENT 
+				( EQUIPMENT_ID
+				  , CATEGORY
+				  , EQUIPMENT_NAME
+				  , MBR_ID )
+			VALUES ( EQUIPMENT_SEQ.NEXTVAL
+				  , #category#
+				  , #equipmentName#
+				  , #mbrId# )
+		]]>
+	</insert>
+	
+	<update id="equipmentDAO.updateEquipment_S">
+		<![CDATA[
+			UPDATE EQUIPMENT
+			SET EQUIPMENT_ID=#equipmentId#
+				, CATEGORY=#category#
+				, EQUIPMENT_NAME=#equipmentName#
+				, MBR_ID=#mbrId#
+			WHERE EQUIPMENT_ID=#equipmentId#
+				]]>
+	</update>
+	
+	<delete id="equipmentDAO.deleteEquipment_S">
+		<![CDATA[
+			DELETE FROM EQUIPMENT 
+						WHERE EQUIPMENT_ID=#equipmentId#
+				]]>
+	</delete>
+	
+	<select id="equipmentDAO.selectEquipment_S" resultMap="equipment">
+		<![CDATA[
+			SELECT
+				EQUIPMENT_ID
+				, (select find_codename(category) from dual) CATEGORY
+				, EQUIPMENT_NAME
+				, MBR_ID
+			FROM EQUIPMENT
+						WHERE EQUIPMENT_ID=#equipmentId#
+				]]>
+	</select>
+	
+	<select id="equipmentDAO.selectEquipmentList_D" parameterClass="equipmentSerarchVO" resultClass="egovMap">
+SELECT * FROM (
+	SELECT A.*, ROWNUM RNUM FROM (
+				SELECT
+						EQUIPMENT_ID
+						, category
+						, (select find_codename(category) from dual) category_Nm
+						, EQUIPMENT_NAME
+						, MBR_ID
+						FROM EQUIPMENT
+				WHERE 1=1
+				<isNotEmpty prepend="AND" property="category">			
+					CATEGORY = #category#
+				</isNotEmpty>
+				<isNotEmpty prepend="AND" property="category">			
+					MBR_ID = #mbrId#
+				</isNotEmpty>
+				
+				
+					ORDER BY 
+						EQUIPMENT_ID DESC
+	<![CDATA[					
+				) A WHERE ROWNUM <= #lastIndex#
+			)WHERE RNUM > #firstIndex#
+	]]>		
+		
+	</select>	
+	<select id="equipmentDAO.selectEquipmentListTotCnt_S" parameterClass="equipmentSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM EQUIPMENT
+			WHERE 1=1
+				<isNotEmpty prepend="AND" property="category">
+					CATEGORY = #category#
+				</isNotEmpty>
+				<isNotEmpty prepend="AND" property="mbrId">
+					MBR_ID = #mbrId#
+				</isNotEmpty>
+	</select>
+	
+	
+	<!-- 장비사용량 페이지에서 사용량 등록을 위한 목록 출력 -->
+<select id="equipmentDAO.comboEquipmentList_D" parameterClass="equipmentSerarchVO" resultClass="egovMap">
+				SELECT
+						EQUIPMENT_ID
+						, category
+						, (select find_codename(category) from dual) category_Nm
+						, EQUIPMENT_NAME
+						, MBR_ID
+						FROM EQUIPMENT
+				WHERE 1=1
+				<isNotEmpty prepend="AND" property="category">			
+					CATEGORY = #category#
+				</isNotEmpty>
+				<isNotEmpty prepend="AND" property="category">			
+					MBR_ID = #mbrId#
+				</isNotEmpty>
+					ORDER BY 
+						EQUIPMENT_ID DESC
+		
+		
+	</select>	
+	
+
+</sqlMap>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles
+Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<!-- 타일즈 -->
+	<definition name="mainTemplate" template="/WEB-INF/jsp/tiles/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/tiles/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/tiles/content.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/tiles/footer.jsp" />
+	</definition>
+	
+	<!-- 노타일즈 -->
+	<definition name="noLayout" template="/WEB-INF/jsp/tiles/nolayout.jsp">
+	<put-attribute name="nolayout" value="" />
+	</definition>
+	
+	<definition name="/farmdic/*" extends="noLayout">
+		<put-attribute name="nolayout" value="/WEB-INF/jsp/farmdic/{1}.jsp" />
+	
+	</definition>
+	<definition name="/item/ItemList" extends="noLayout">
+		<put-attribute name="nolayout" value="/WEB-INF/jsp/item/ItemList.jsp" />
+	</definition>
+	
+	<definition name="/crops/selectCropsList" extends="noLayout">
+		<put-attribute name="nolayout" value="/WEB-INF/jsp/crops/selectCropsList.jsp" />
+	</definition>
+
+	<definition name="/crops/selectCropsList_insert" extends="noLayout">
+		<put-attribute name="nolayout" value="/WEB-INF/jsp/crops/selectCropsList_insert.jsp" />
+	</definition>
+	
+	<definition name="/cpr/CprSelect" extends="noLayout">
+		<put-attribute name="nolayout" value="/WEB-INF/jsp/cpr/CprSelect.jsp" />
+	</definition>
+	
+	<definition name="/mbr/mapSelect" extends="noLayout">
+		<put-attribute name="nolayout" value="/WEB-INF/jsp/mbr/mapSelect.jsp" />
+	</definition>
+	
+	<definition name="/cpr/CprSelectForSell" extends="noLayout">
+		<put-attribute name="nolayout" value="/WEB-INF/jsp/cpr/CprSelectForSell.jsp" />
+	</definition>
+	
+	<definition name="/crops/selectCropsList_sellList" extends="noLayout">
+		<put-attribute name="nolayout" value="/WEB-INF/jsp/crops/selectCropsList_sellList.jsp" />
+	</definition>
+	
+	<definition name="/crops/updateCoopView" extends="noLayout">
+		<put-attribute name="nolayout" value="/WEB-INF/jsp/crops/updateCoopView.jsp" />
+	</definition>
+	
+	
+	
+	<definition name="*/*" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}.jsp" />
+	</definition>
+	<definition name="*/*/*" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}/{3}.jsp" />
+	</definition>
+
+</tiles-definitions>

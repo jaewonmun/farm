@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Mbr">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="mbrSerarchVO" type="egovframework.farm.mbr.service.MbrDefaultVO"/>
+	
+	<resultMap id="mbr" class="egovframework.farm.mbr.service.MbrVO">
+		<result property="mbrId" column="MBR_ID" columnIndex="1"/>
+		<result property="password" column="PASSWORD" columnIndex="2"/>
+		<result property="mbrName" column="MBR_NAME" columnIndex="3"/>
+		<result property="perm" column="PERM" columnIndex="4"/>
+		<result property="creaDate" column="CREA_DATE" columnIndex="5"/>
+		<result property="address" column="ADDRESS" columnIndex="6"/>
+		<result property="region" column="REGION" columnIndex="7"/>
+		<result property="userConame" column="USER_CONAME" columnIndex="8"/>
+	</resultMap>
+	
+	<insert id="mbrDAO.insertMbr_S">
+		<![CDATA[
+			INSERT INTO MBR 
+				( MBR_ID
+				  , PASSWORD
+				  , MBR_NAME
+				  , PERM
+				  , CREA_DATE
+				  , ADDRESS
+				  , REGION
+				  , USER_CONAME )
+			VALUES ( #mbrId#
+				  , #password#
+				  , #mbrName#
+				  , '0AA2'
+				  , sysdate
+				  , #address#
+				  , #region#
+				  , #userConame# )
+		]]>
+	</insert>
+	
+	<update id="mbrDAO.updateMbr_S">
+		<![CDATA[
+			UPDATE MBR
+			SET MBR_ID=#mbrId#
+				, PASSWORD=#password#
+				, MBR_NAME=#mbrName#
+				, PERM=#perm#
+				, CREA_DATE=#creaDate#
+				, ADDRESS=#address#
+				, REGION=#region#
+				, USER_CONAME=#userConame#
+						WHERE MBR_ID=#mbrId#
+				]]>
+	</update>
+	
+	<delete id="mbrDAO.deleteMbr_S">
+		<![CDATA[
+			DELETE FROM MBR 
+						WHERE MBR_ID=#mbrId#
+				]]>
+	</delete>
+	
+	<select id="mbrDAO.selectMbr_S" resultMap="mbr">
+		<![CDATA[
+			SELECT
+				MBR_ID
+				, PASSWORD
+				, MBR_NAME
+				, PERM
+				, CREA_DATE
+				, ADDRESS
+				, REGION
+				, USER_CONAME
+			FROM MBR
+						WHERE MBR_ID=#mbrId#
+				]]>
+	</select>
+	
+	<select id="mbrDAO.selectLogin" resultClass="int">
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM MBR
+					WHERE MBR_ID=#mbrId# AND PASSWORD=#password#
+		]]>
+	</select>
+	
+	<select id="mbrDAO.idCheck" resultClass="int">
+		<![CDATA[
+			SELECT
+				COUNT(*)
+			FROM MBR
+						WHERE MBR_ID=#mbrId#
+				]]>
+	</select>
+	
+	
+	<select id="mbrDAO.selectMbrList_D" parameterClass="mbrSerarchVO" resultClass="egovMap">
+SELECT * FROM (
+	SELECT A.*, ROWNUM RNUM FROM (
+				SELECT
+								MBR_ID
+								, PASSWORD
+								, MBR_NAME
+								, PERM
+								, CREA_DATE
+								, ADDRESS
+								, REGION
+								, USER_CONAME
+						FROM MBR
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					MBR_ID = #searchKeyword#
+				</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					PASSWORD LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+					ORDER BY 
+						MBR_ID DESC
+		
+		<![CDATA[					
+	) A WHERE ROWNUM <= #lastIndex#
+)WHERE RNUM > #firstIndex#
+]]>
+	</select>	
+	<select id="mbrDAO.selectMbrListTotCnt_S" parameterClass="mbrSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MBR
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MBR_ID = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PASSWORD LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+	</select>
+	
+	<!-- 리포트 관련 쿼리 -->
+	<!-- 마스터 리포트 -->
+	<select id="mbrDAO.selectgetReport_S"  resultMap="mbr">
+				<!-- SELECT
+								MBR_ID
+								, MBR_NAME
+								, ADDRESS
+								, USER_CONAME
+						FROM MBR
+				WHERE 1=1
+				<isNotEmpty prepend="AND" property="mbrId">
+				AND	MBR_ID = #mbrId#
+				</isNotEmpty>  -->
+				<![CDATA[
+			SELECT
+				MBR_ID
+				, PASSWORD
+				, MBR_NAME
+				, PERM
+				, CREA_DATE
+				, ADDRESS
+				, REGION
+				, USER_CONAME
+			FROM MBR
+						WHERE MBR_ID=#mbrId#
+				]]>
+	</select>
+	<!--  
+	SELECT
+     MBR."MBR_ID" AS MBR_MBR_ID,
+     MBR."MBR_NAME" AS MBR_MBR_NAME,
+     MBR."ADDRESS" AS MBR_ADDRESS,
+     MBR."USER_CONAME" AS MBR_USER_CONAME
+	FROM
+     "MBR" MBR
+	where
+     mbr_id='12345'
+	-->
+</sqlMap>

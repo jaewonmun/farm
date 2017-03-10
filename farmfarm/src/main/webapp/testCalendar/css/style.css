@@ -1,0 +1,127 @@
+@CHARSET "UTF-8";
+
+/* Any demo specific styling needed for this tutorial only */
+
+html, body
+{ position:relative; }
+
+#model_list {
+    height: 100px;
+}
+
+#appLayout {
+    height: 100%;
+}
+#leftCol {
+    width: 14em;
+}
+
+.claro .demoLayout .edgePanel {
+    background-color: #d0e9fc;
+}
+
+.header {
+	height: 40px;	
+}	
+
+#viewsChart {
+	width: 550px;
+	height: 550px;
+}
+
+.labelsAndValues-labelCell {
+
+  background-color: lightgrey;
+ /* padding-left: 5px; */
+  text-align: center;
+  width:30px;
+  
+}
+
+.labelsAndValues-valueCell {
+
+  
+  /*
+  width: 50px;
+   
+  */
+ 
+ background-color: lightblue;
+  text-align: center;
+}
+
+.textareaheight {
+	width:100%; 
+	min-height:60px; !important
+}
+
+
+.dialog_info_identify {
+	 
+	min-height:20px; !important
+}
+
+#historyDate .dojoxCalendarDecrease, #historyDate .dojoxCalendarIncrease { 
+  display: none; 
+} 
+	
+	
+	
+	
+.htmllabelvalue .label {
+	background-color: #E8E4D8;
+ /* padding-left: 5px; */
+  text-align: center;
+  
+  padding-left: 3px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;  
+  width:80px;
+}
+
+.htmllabelvalue .value {
+	padding-right: 10px !important;
+	padding-left: 10px !important;
+	padding-top: 3px !important; 
+	padding-bottom: 3px !important;
+    
+  /*padding: 1px 0px 5px 20px;*/
+  background-color: #D9E8F9;
+  
+  text-align: center;
+  width:100px;
+}
+
+
+
+.shadow { 
+
+        padding:4px;
+
+        -moz-border-radius: 6px; 
+
+        -webkit-border-radius: 6px; 
+/*
+        -moz-box-shadow: 0px 6px 3px -3px #888;
+
+        -webkit-box-shadow: 0px 6px 3px -3px #888;
+
+        
+        box-shadow: 0px 6px 3px -3px #888; 
+*/
+        background-color:white; border: solid 4px #80a8c1;
+
+      }
+      
+/* 가이드뷰(?) */
+.guideIcon {padding-left: 3px;}
+#layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #layer7, #layer8, #layer9, #layer10, #layer11, #layer12, #layer13  { 
+	display:none; width:180px;
+	position:absolute; left:0; top:0;
+	padding:14px 10px; border-radius: 5px; 
+	border:1px solid #800000;
+	-moz-border-radius:5px; -webkit-border-radius:5px; 
+	background-color:#fff; font-size:12px; font-family:Dotum; color:#000; z-index: 999}
+#layer4 {
+	width:230px;
+}

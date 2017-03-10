@@ -1,0 +1,138 @@
+/*========================================================================== dayliy diary ==========================================================================*/	
+
+#calTitle { margin: 0 auto; text-align: center; font-size: 25px;}
+#beforeMonth,#afterMonth,#beforeYear,#afterYear {font-size: 10px; padding: 1px;}
+/*========================================================================== make CSS option ==========================================================================*/
+
+.farmCalendar{width:800px; margin:0 auto; margin-bottom: 3px;}
+.farmCalendar .farmInfo{width:683px; margin-bottom:38px; background:#ccc; float:left; height:154px; background:url(/images/product/calStepBg.gif) no-repeat}
+.farmCalendar .weather{width:267px; background:#ddd; float:left; height:154px; background:url(/images/product/calWeather.gif) no-repeat; margin-left:20px}
+.farmCalendar .farmInfo div{float:left}
+.farmCalendar .farmInfo div>span{display:block; text-align:center; padding-top:8px; height:22px; font:14px NanumBarunGothic}
+.farmCalendar .farmInfo .farmBtn{width:208px}
+.farmCalendar .farmInfo .farmPrice{width:245px; position: relative;}
+.farmCalendar .farmInfo .farmNews{width:226px}
+.farmCalendar .farmInfo .farmBtn .inner{width:197px; height:122px; padding:3px 2px 0 10px; overflow-y:scroll}
+.farmCalendar .farmInfo .farmNews .inner{padding:22px 15px; font-size:12px; position:relative}
+.farmCalendar .farmInfo .farmNews .inner h4{width:200px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight: bold; color:#444}
+.farmCalendar .farmInfo .farmNews .inner img{position:absolute; top:47px; border:1px solid #999}
+.farmCalendar .farmInfo .farmNews .inner p{padding:10px 0 0 90px; color:#888}
+.farmCalendar .farmInfo .farmPrice .inner{padding:9px 14px; float: none;}
+.farmCalendar .farmInfo .farmPrice .inner.ani {height: 104px; overflow: hidden; position: relative;}
+.farmCalendar .farmInfo .farmPrice .inner.ani > div {position: relative;}
+.farmCalendar .farmInfo .farmPrice .inner.ani > div > div > span:first-child {width: 145px; padding-left: 18px; text-align: left;}
+.farmCalendar .farmInfo .farmPrice .inner > div > span > img {position: absolute; top: 3px; left: 3px;}
+.farmCalendar .farmInfo .farmPrice .inner div {float: none;}
+.farmCalendar .farmInfo .farmPrice .inner span {padding: 0; font-size: 12px; font-family: Dotum;}
+.farmCalendar .farmInfo .farmPrice .refs{font-size:11px; color:#666; text-align:right; width:100%; padding-top:5px}
+.farmCalendar .farmInfo .farmBtn span{color:#fff}
+.farmCalendar .farmInfo .farmBtn li{display:inline-block; *display:inline; margin:6px 0 0 2px; *line-height:25px}
+.farmCalendar .farmInfo .farmBtn li a{display:inline-block; *display:inline; *zoom:1; background:url(/images/product/icoCalendar.gif) left -115px no-repeat; height:19px; line-height:19px; font-size:12px;}
+.farmCalendar .farmInfo .farmBtn li a span{display:inline-block; *display:inline; *zoom:1; background:url(../farmfarm/images/product/icoCalendar.gif) right -115px no-repeat; 
+padding:1px 4px 0 0; margin-left:4px; color:#878787; height:18px; width:45px; text-align:center;}
+.farmCalendar .farmInfo .farmBtn li a.on{background:url(/images/product/icoCalendar.gif) left -96px}
+.farmCalendar .farmInfo .farmBtn li a.on span{background:url(/images/product/icoCalendar.gif) right -96px; color:#fff}
+
+.stock{width:220px; border-bottom:1px solid #e7e7e7}
+.stock thead th b{font:13px NanumBarunGothic}
+.stock thead th, .stock tbody th{background:#fbfbfb; border-top:1px solid #e7e7e7; font:11px NanumBarunGothic; color:#373737; height:23px}
+.stock tbody th{width:70px}
+.stock tbody td {border-top:1px solid #e7e7e7; font-size:12px; color:#373737; height:23px; background:#fbfbfb;}
+.stock tbody td span{display:inline-block; width:48%; text-align:right}
+.stock tbody td span.arw{width:40%}
+.stock tbody td span.arw img{margin-right:3px}
+
+.calWrap{position:relative; clear:both}
+.calWrap .calHeader{width:300px; height:40px; font:21px NanumBarunGothic; margin:0 auto; color:#3c3c3c}
+.calWrap .cPre{display:inline-block; *display:inline; *zoom:1; width:19px; height:18px; background:url(/images/product/icoCalendar.gif) 0 0 no-repeat}
+.calWrap .cNext{display:inline-block; *display:inline; *zoom:1; width:19px; height:18px; background:url(/images/product/icoCalendar.gif) -19px 0 no-repeat}
+.calWrap .btnToday, .dayNew .btnToday {display:inline-block; *display:inline; *zoom:1; width:35px; height:18px; background:url(/images/product/icoCalendar.gif) -38px 0 no-repeat}
+.calWrap .btnDatepic, .btnDatepic {display:inline-block; *display:inline; *zoom:1; width:15px; height:18px; background:url(/images/util/icoCalendar.gif) 0 0 no-repeat}
+.calWrap .calHeader .viewSelect{position:absolute; right:0; top:0}
+.calWrap .calHeader .viewSelect a{display:inline-block; width:40px; height:26px; background:url(/images/product/icoCalendar.gif) 0 -18px no-repeat}
+.calWrap .calHeader .viewSelect a.sel01{background-position:0 -44px}
+.calWrap .calHeader .viewSelect a.sel01.on{background-position:0 -18px}
+.calWrap .calHeader .viewSelect {background-position:-40px -18px}
+.calWrap .calHeader .viewSelect {background-position:-40px -44px}
+.calWrap .calHeader .writeBtn{position:absolute; left:0; top:0; display:block; width:102px; height:26px; background:url(/images/product/icoCalendar.gif) 0 -70px no-repeat}
+.calWrap .calHeader span{margin:0 10px}
+.calWrap .calHeader span b{font:28px NanumBarunGothic; margin:0 auto; font-weight:bold}
+
+
+.calTable{border:1px solid #e4e5e7; border-right:none}
+.calendar{table-layout:fixed; width:100%; min-height:123px; border-collapse:collapse; border-bottom:1px solid #e4e5e7}
+.calendar thead th{height:27px; padding:0;  line-height:27px; border-right:1px solid #e4e5e7; border-bottom:2px solid #e4e5e7; color:#7a7d8c;text-align:center; background:#fafafa; font-size:12px}
+.calendar tbody td{line-height:20px; height:20px; min-height:20px; padding:0; border-right:1px solid #e4e5e7; text-align:left; background:#fff; *position:none;}
+.calTable .diaryBar{display:block; height:17px; line-height:17px; padding-left:3px; color:#fff; background:#628dcb;border:1px solid #1f5cb5;overflow:hidden}
+.calTable .taskBar{display:block; height:17px; line-height:17px; padding-left:3px; background:#ff984c; border:1px solid #ff6c00;  color:#fff;  overflow:hidden}
+.calTable .only{background:none; border:none;  color:#333;  overflow:hidden}
+.calTable .diaryBar img,
+.calTable .taskBar img{vertical-align:middle; margin-right:3px}
+.calTable .taskBar b.nt{float:right; line-height:17px; font-size:8px; margin-right:5px}
+.calTable .taskBar b.pr{float:left; line-height:17px; font-size:8px; margin-left:5px}
+.calTable .taskBar.end{margin-right:5px}
+.calTable .today{border-left:2px solid #87dcff; border-right:2px solid #87dcff; background-color:#f3fbff}
+.calendar tbody tr.dateRow .today{border-top:2px solid #87dcff; background-color:#f3fbff}
+.calendar .today.end{border-bottom:2px solid #87dcff; background-color:#f3fbff}
+.calendar .moreBin{display:inline-block; width:105px; height:100%; *float:left }
+.calTable .todayBox{position:absolute; left:0; top:0; width:150px; height:150px; border:2px solid #87dcff; background-color:#f3fbff}
+.calendar tbody td .todoBar{color:#137423; text-decoration:underline; font-weight:bold; margin:0 0 0 5px; background:url(/images/product/icoTask.png) no-repeat; padding:4px 0 0 20px}
+.calendar tbody tr.farm td a.todoBar{visibility:hidden}
+.calendar tbody tr td:hover a.todoBar{visibility:visible}
+.holyDay{color:#f44e4e!important}
+.pre{color:#d5d5d5!important}
+.holyDay.pre{color:#ffa0a4!important}
+.calendar tbody td .more{float:right; color:#df5f01; text-decoration:underline; font-weight:bold; margin-right:3px}
+.calendar tbody tr.dateRow td{font-family:Tahoma; font-weight:bold; font-size:12px; color:#8e8e8e; padding:2px 0 0 5px; vertical-align:middle}
+.calendar tbody tr.dateRow td img{vertical-align:middle; margin:0 0 0 3px}
+.calendar tbody tr.dateRow td span.cldLunar{display:block; float:right; margin-right:5px; font:11px Tahoma; color:#bababa; font-size:11px; color:#666}
+
+
+/*
+.calWrap .calTable{overflow:hidden;clear:both;position:relative;width:auto}
+.calWrap .calTable table{table-layout:fixed;width:100%;border-collapse:collapse;}
+.calWrap .calTable table thead th{height:27px; line-height:27px; border:2px solid #e4e5e7;color:#7a7d8c;text-align:center; background:#fafafa; font-size:12px}
+.calWrap .calTable table thead th span{display:block; margin-top:2px}
+.calWrap .calTable table tbody td{height:130px; padding:0 2px;border:1px solid #e4e5e7; text-align:left; vertical-align:top}
+.calWrap .calTable table tbody .cldDate{position:relative;top:0;left:0; min-height:102px; }
+.calWrap .calTable table tbody .dateHead{height:22px;overflow:hidden;margin:0 0 4px 6px}
+.calWrap .calTable table tbody .cldDay{display:block; overflow:hidden;float:left;margin:4px 5px 0 0;font-family:Tahoma;font-weight:bold; font-size:12px; color:#8e8e8e}
+.calWrap .calTable table tbody .cldDay>img{vertical-align:middle; margin-left:3px}
+.calWrap .calTable table tbody .preDay{color:#e7e7e7;cursor:pointer}
+.calWrap .calTable table tbody .nextDay{color:#e7e7e7;cursor:pointer}
+.calWrap .calTable table tbody .holyDay{color:#f44e4e}
+.calWrap .calTable table tbody .sunDay{color:#f44e4e}
+.calWrap .calTable table tbody .cldLunar{display:block; overflow:hidden;position:absolute;top:6px;right:8px;font:11px Tahoma;color:#bababa; font-size:11px; color:#666}
+.calWrap .calTable table tbody .toDay{border:2px solid #87dcff; background-color:#f3fbff}
+.calWrap .calTable table tbody ul li{height:19px; padding-bottom:2px}
+.calWrap .calTable table tbody ul li a{display:block; height:17px; line-height:17px; padding:0 1px; font-size:12px;overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.calWrap .calTable table tbody .todoBar{color:#137423; text-decoration:underline; font-weight:bold; vertical-align:middle}
+.calWrap .calTable table tbody .taskBar{background:#ff984c; color:#fff; border:1px solid #ff6c00}
+.calWrap .calTable table tbody .diaryBar{background:#628dcb; color:#fff; border:1px solid #1f5cb5}
+.calWrap .calTable table tbody .more{color:#df5f01; text-decoration:underline; font-weight:bold; text-align:right; margin-right:3px}
+.calWrap .calTable table tbody ul li a span{margin-left:3px; vertical-align:middle}
+.calWrap .calTable table tbody ul li a span img{vertical-align:middle; margin-right:3px}
+*/
+
+.dvPop{display:none; position:absolute; width:400px; height:500px; margin:0 auto; border:2px solid #000; background:#fff; z-index:10}
+.farmHeader .weather{position:relative}
+.farmHeader .weather .temArea{display:block; font-size:12px; height:30px; line-height:22px; padding-left:7px}
+.farmHeader .weather img{position:absolute; left:10px; top:40px}
+.farmHeader .weather dl{padding:10px 0 0 122px}
+.farmHeader .weather dl dd{display:inline}
+.farmHeader .weather dl dd.tem{position:absolute; top:60px; color:#d62525; font: 35px '나눔바른고딕', NanumBarunGothic , Tahoma; font-weight: bold;}
+.farmHeader .weather dl dd.tem span{font-size:16px; vertical-align:top; font-weight:bold}
+.farmHeader .weather dl dd.lh{margin:45px 3px 0 0; font-size:12px; color: #5d5d5d; font: 12px '돋움', Dotum, Tahoma; text-align:left; display:block; width:133px}
+.farmHeader .weather p.temTxt{padding:10px 0 0 125px; font-size:12px; color: #5d5d5d; font: 12px '돋움', Dotum, Tahoma}
+.farmHeader .weather p.temTxt b{font: 15px '나눔바른고딕',NanumBarunGothic; display:block}
+.farmHeader .weather p.temTxt02 {padding:75px 0 0 20px; overflow:hidden;}
+.farmHeader .weather p.temTxt02 .weath {width:40%; float:left; display:block;}
+.farmHeader .weather p.temTxt02 .temHigh {width:50%; float:right; display:block;}
+.farmHeader .weather p.temTxt02 .temHigh b {display:inline-block; *display:inline; *zoom:1;}
+
+#content .diary{border:2px solid #ff6d00; display:none}
+.diary .rayerColor01 {background:#ffe9db; }
+.diary .rayerTit span {font:12px '돋움', Dotum, Tahoma; color:#03439f; font-weight:bold;}
+.diary .rayerCt {padding:15px;font:12px '돋움', Dotum, Tahoma;}
+
+

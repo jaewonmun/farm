@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="FarmWeather">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="farmWeatherSerarchVO" type="egovframework.farm.wtf.service.FarmWeatherDefaultVO"/>
+	
+	<resultMap id="farmWeather" class="egovframework.farm.wtf.service.FarmWeatherVO">
+		<result property="mbrId" column="MBR_ID" columnIndex="1"/>
+		<result property="weatherDate" column="WEATHER_DATE" columnIndex="2"/>
+		<result property="weatherStatus" column="WEATHER_STATUS" columnIndex="3"/>
+		<result property="lowestTemp" column="LOWEST_TEMP" columnIndex="4"/>
+		<result property="highestTemp" column="HIGHEST_TEMP" columnIndex="5"/>
+		<result property="rainfall" column="RAINFALL" columnIndex="6"/>
+	</resultMap>
+	
+	<procedure id="farmWeatherDAO.procedureWeather">
+		{ call weather_insert(#mbrId# , #weatherDate# , #weatherStatus# , #lowestTemp# , #highestTemp# , #rainfall#) }
+	</procedure>
+	
+	<insert id="farmWeatherDAO.insertFarmWeather_S">
+		<![CDATA[
+			INSERT INTO FARM_WEATHER 
+				( MBR_ID
+				  , WEATHER_DATE
+				  , WEATHER_STATUS
+				  , LOWEST_TEMP
+				  , HIGHEST_TEMP
+				  , RAINFALL
+				   )
+			VALUES ( #mbrId#
+				  , sysdate
+				  , #weatherStatus#
+				  , #lowestTemp#
+				  , #highestTemp#
+				  , #rainfall#
+				  )
+		]]>
+	</insert>
+	
+	<update id="farmWeatherDAO.updateFarmWeather_S">
+		<![CDATA[
+			UPDATE FARM_WEATHER
+			SET MBR_ID=#mbrId#
+				, WEATHER_DATE=#weatherDate#
+				, WEATHER_STATUS=#weatherStatus#
+				, LOWEST_TEMP=#lowestTemp#
+				, HIGHEST_TEMP=#highestTemp#
+				, RAINFALL=#rainfall#
+						WHERE MBR_ID=#mbrId#
+								AND WEATHER_DATE=#weatherDate#
+				]]>
+	</update>
+	
+	<delete id="farmWeatherDAO.deleteFarmWeather_S">
+		<![CDATA[
+			DELETE FROM FARM_WEATHER 
+						WHERE MBR_ID=#mbrId#
+								AND WEATHER_DATE=#weatherDate#
+				]]>
+	</delete>
+	
+	<select id="farmWeatherDAO.selectFarmWeather_S" resultMap="farmWeather">
+		<![CDATA[
+			SELECT
+				MBR_ID
+				, WEATHER_DATE
+				, WEATHER_STATUS
+				, LOWEST_TEMP
+				, HIGHEST_TEMP
+				, RAINFALL
+			FROM FARM_WEATHER
+						WHERE MBR_ID=#mbrId#
+								AND WEATHER_DATE=TO_DATE(#weatherDate#,'YYYYMMDD')
+				]]>
+	</select>
+	
+	<select id="farmWeatherDAO.selectFarmWeatherList_D" parameterClass="java.util.Map" resultClass="egovMap">
+
+				SELECT
+								MBR_ID
+								,TO_CHAR(WEATHER_DATE,'YYYYMMDD') as "WEATHER_DATE"
+								, WEATHER_DATE
+								, WEATHER_STATUS
+								, LOWEST_TEMP
+								, HIGHEST_TEMP
+								, RAINFALL
+						FROM FARM_WEATHER
+				WHERE 1=1
+		<isNotEmpty property="searchMode">
+			<isEqual property="searchMode" compareValue="MONTH">
+				<isNotEmpty property="searchMonth">
+					<isNotEqual property="searchMonth" compareValue="">
+				 	 AND #searchMonth# = TO_CHAR(WEATHER_DATE,'YYYYMM')
+					</isNotEqual>
+				</isNotEmpty>
+			</isEqual>
+		</isNotEmpty>
+		<isNotEmpty property="mbrId">
+				AND MBR_ID =  #mbrId#
+		</isNotEmpty>
+	</select>	
+	<select id="farmWeatherDAO.selectFarmWeatherListTotCnt_S" parameterClass="farmWeatherSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM FARM_WEATHER
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MBR_ID = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				WEATHER_DATE LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+	</select>
+	
+	<!-- 리포트 관련 쿼리 -->
+	<!-- 날씨  리포트-->
+	<select id="farmWeatherDAO.selectweatherReport_S" parameterClass="farmWeatherSerarchVO" resultClass="egovMap">
+				SELECT
+								 WEATHER_STATUS
+								, LOWEST_TEMP
+								, HIGHEST_TEMP
+								, RAINFALL
+								,TO_CHAR(WEATHER_DATE,'YYYYMMDD') as "WEATHER_DATE"
+
+						FROM FARM_WEATHER
+				WHERE 1=1
+				<isNotEmpty property="mbrId">
+				AND MBR_ID = #mbrId#
+				</isNotEmpty>
+				<isNotEmpty property="weatherDate">
+				AND TRUNC(WEATHER_DATE)=TO_DATE(#weatherDate#,'yy/mm/dd')
+				</isNotEmpty>
+	</select>
+	
+<!--
+SELECT
+     FARM_WEATHER."WEATHER_STATUS" AS FARM_WEATHER_WEATHER_STATUS,
+     FARM_WEATHER."LOWEST_TEMP" AS FARM_WEATHER_LOWEST_TEMP,
+     FARM_WEATHER."HIGHEST_TEMP" AS FARM_WEATHER_HIGHEST_TEMP,
+     FARM_WEATHER."RAINFALL" AS FARM_WEATHER_RAINFALL,
+     FARM_WEATHER."WEATHER_DATE" AS FARM_WEATHER_WEATHER_DATE
+FROM
+     "FARM_WEATHER" FARM_WEATHER
+WHERE
+     FARM_WEATHER."MBR_ID" = '12345'
+and trunc(FARM_WEATHER."WEATHER_DATE")=to_date('16/12/07','yy/mm/dd')
+  -->
+
+</sqlMap>

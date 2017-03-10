@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="v_master_1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff41cd9f-77d2-4c40-a0d6-a7fa0d76b961">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\eGovFrame\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     MBR."MBR_ID" AS "mbrId",
+     MBR."MBR_NAME" AS "mbrName",
+     MBR."ADDRESS" AS "address",
+     MBR."USER_CONAME" AS "userConame"
+FROM
+     "MBR" MBR
+where
+     mbr_id='12345']]>
+	</queryString>
+	<field name="mbrId" class="java.lang.String"/>
+	<field name="mbrName" class="java.lang.String"/>
+	<field name="address" class="java.lang.String"/>
+	<field name="userConame" class="java.math.BigDecimal"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<image>
+				<reportElement x="190" y="6" width="200" height="42" uuid="5fbfff5c-63b2-4863-9450-1428d9b7be7f"/>
+				<imageExpression><![CDATA["D:\\eGovFrame\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\farmfarm\\reports\\farmlogo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="57">
+			<staticText>
+				<reportElement mode="Opaque" x="21" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="715ee519-fa29-43b0-97e2-f5738d558bfc"/>
+				<textElement textAlignment="Center">
+					<font fontName="돋움" size="14" isBold="true" pdfEncoding="UniKS-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[아이디]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="243" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e8723d01-8167-434e-a238-7e97602be617"/>
+				<textElement textAlignment="Center">
+					<font fontName="돋움" size="14" isBold="true" pdfEncoding="UniKS-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[농장 주소]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="21" y="21" width="138" height="20" uuid="27d0ea3e-1d33-4bf1-9401-4bc035457186"/>
+				<textElement textAlignment="Center">
+					<font fontName="돋움" size="14" pdfEncoding="UniKS-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mbrId}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="243" y="21" width="279" height="20" uuid="7956460e-03ce-4bff-a82c-d15ee623ed6a"/>
+				<textElement textAlignment="Center">
+					<font fontName="돋움" size="14" pdfEncoding="UniKS-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="41" width="555" height="1" uuid="b2131192-7dec-4f1c-b692-d58fe885b494"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="3b961c4f-d46b-48b5-8fc8-c8af1d0690dc"/>
+			</line>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="0" width="100" height="20" uuid="e2d13169-c271-4424-8ae9-f65194d824e7"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="500"/>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="24">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="515" height="20" backcolor="#E6E6E6" uuid="04003de2-a4b5-46ea-bebe-ee07dd312918"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="003205c5-870c-4c71-ac13-ee3c574be5de"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="0" width="40" height="20" backcolor="#E6E6E6" uuid="cdaf2e0f-ed0b-4098-9191-58ffcb86a1b1"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

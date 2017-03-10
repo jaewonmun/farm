@@ -1,0 +1,491 @@
+@charset "utf-8";
+
+.bx-default-pager{display:none}
+#homeWrap h2{display:none}
+#homeWrap .news{height:365px; background:url(/images/home/mainBg.gif) repeat-x}
+#homeWrap .farmInfo{height:308px}
+#homeWrap .media{height:268px; background:#fffdec}
+#homeWrap .news .inner,
+#homeWrap .farmInfo .inner,
+#homeWrap .media .inner{width:990px; margin:0 auto; position:relative}
+#homeWrap .news .inner{position:relative; padding:38px 0 0 10px; width:980px; margin:0 auto}
+#homeWrap .news .inner .slide{border:1px solid #ccc; width:325px; position:relative}
+#homeWrap .news .inner .paper{position:absolute; left:337px; top:38px; border:1px solid #ccc; border-left:none; background:#fff}
+#homeWrap .news .inner .quick{position:absolute; left:761px; top:38px}
+
+/*main slide*/ /*jquery.bxslider.css를 참조하지 않음*/
+#homeWrap .news .bothPaging a {position: absolute;top:100px; width:32px;height:45px;text-indent: -9999px;z-index: 100;background: url(/images/home/arw.png) no-repeat;}
+#homeWrap .news .bothPaging a.bx-next {right: 0;background: url(/images/home/arw.png) right 0 no-repeat;}
+#homeWrap .news .bothPaging a.bx-prev {left: 0;background: url(/images/home/arw.png) left 0 no-repeat;}
+#homeWrap .news .bothPaging a.bx-next:hover {background-position: right -45px}
+#homeWrap .news .bothPaging a.bx-prev:hover {background-position: left -45px}
+#homeWrap .news .bx-wrapper {position: relative;margin: 0;padding: 0;*zoom: 1;}
+#homeWrap .news .bx-wrapper .bx-caption {position: absolute;bottom: 0;	left: 0;	background: #666\9; background: rgba(0, 0, 0, 0.76);width: 100%;}
+#homeWrap .news .bx-wrapper .bx-caption span {color: #bbb; display: block;font-size:11px;padding: 10px;}
+#homeWrap .news .bx-wrapper .bx-caption strong {color: #fff; display: block;font-size:12px;padding: 10px 10px 0 10px;}
+#homeWrap .news .totalPaging {height:25px; position:absolute; right:5px; top:5px; z-index:100}
+#homeWrap .news .totalPaging div{height:25px; width:40px; position:absolute; right:0}
+#homeWrap .news .totalPaging a{background: url(/images/home/slideBtn.gif) no-repeat; width:19px; height:18px; text-indent: -9999px; z-index:99; display:block; float:left}
+#homeWrap .news .totalPaging .slider-p a{background: url(/images/home/slideBtn.gif) -38px 0 no-repeat;}
+#homeWrap .news .totalPaging .slider-n a{background: url(/images/home/slideBtn.gif) right 0 no-repeat;width:20px; }
+#homeWrap .news .bx-wrapper .bx-pager {text-align: right;font-size: 11px;font-family: Arial;font-weight: bold;color: #666;position:absolute; top:7px; right:88px; z-index:100}
+#homeWrap .news .bx-wrapper .bx-pager .bx-pager-item,
+#homeWrap .news .bx-wrapper .bx-controls-auto .bx-controls-auto-item {display: inline-block;*zoom: 1;*display: inline;}
+#homeWrap .news .bx-wrapper .bx-pager.bx-default-pager a {display: none;width: 25px;height: 18px;margin: 0;color:#6eb92b;font-weight:bold}
+#homeWrap .news .bx-wrapper .bx-pager.bx-default-pager a b{color:#9f9f9f;font-weight:100}
+#homeWrap .news .bx-wrapper .bx-pager.bx-default-pager a.active {display:block}
+#homeWrap .news .bx-wrapper .bx-controls-auto {position: absolute; z-index:100 ; top:5px; right:42px}
+#homeWrap .news .bx-controls-auto .bx-stop {display: block;text-indent: -9999px;width: 19px;height: 18px;	outline: 0;background: url(/images/home/slideBtn.gif) -20px 0 no-repeat; margin: 0;}
+#homeWrap .news .bx-controls-auto .bx-stop:hover,#homeWrap .news .bx-controls-auto .bx-stop.active {background-position: -20px 0}
+#homeWrap .news .bx-controls-auto .bx-start {display:block; text-indent: -9999px;width: 20px;	height: 18px;outline: 0;	background: url(/images/home/slideBtn.gif) 0 0 no-repeat;margin: 0}
+#homeWrap .news .bx-controls-auto .bx-start:hover,#homeWrap .news .bx-controls-auto .bx-start.active {background-position: 0 0;}
+
+/*main top block*/
+#homeWrap .news .inner .newsTab li{width:394px; height:96px; *height:95px; display:block; position:relative; *margin-bottom:-1px }
+#homeWrap .news .inner .newsTab li>h3{width:88px; height:96px; display:block; background:url(/images/home/mainIco.gif) no-repeat; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+#homeWrap .news .inner .newsTab li.n01 h3{background-position:-219px 0}
+#homeWrap .news .inner .newsTab li.n02 h3{background-position:-219px -96px}
+#homeWrap .news .inner .newsTab li.n03 h3{background-position:-219px -192px}
+#homeWrap .news .inner .newsTab li.n03 .thumb{border-bottom:none}
+#homeWrap .news .inner .quickMenu li{width:56px; height:71px; margin-right:15px; display:inline-block; position:relative; *display:inline; *zoom:1 }
+#homeWrap .news .inner .quickMenu li>a{width:56px; height:71px; display:block; background:url(/images/home/mainIco.gif) no-repeat; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+#homeWrap .news .inner .quickMenu li.q01 a{background-position:0 0}
+#homeWrap .news .inner .quickMenu li.q02 a{background-position:-80px 0}
+#homeWrap .news .inner .quickMenu li.q03 a{background-position:-159px 0}
+#homeWrap .news .inner .quickMenu li.q04 a{background-position:0 -71px}
+#homeWrap .news .inner .quickMenu li.q05 a{background-position:-80px -71px}
+#homeWrap .news .inner .quickMenu li.q06 a{background-position:-159px -71px}
+#homeWrap .news .inner .quickMenu li .new{position:absolute; right:5px; top:18px; width:18px; height:18px; display:block; background:url(/images/home/new.png) no-repeat; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+#homeWrap .news .inner .notice{padding-top:10px}
+#homeWrap .news .inner .notice dt{display:block; width:218px; height:31px; margin-bottom:7px; background:url(/images/home/mainIco.gif) 0 -150px no-repeat; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+#homeWrap .news .inner .notice dd{height:20px; padding-left:5px}
+#homeWrap .news .inner .notice dd a{display:block; width:213px; height:20px; line-height:20px; font-size:11px; color:#808080; text-overflow:ellipsis; overflow:hidden; white-space:nowrap}
+#homeWrap .news .inner .thumb{position:absolute; left:95px; top:0; width:306px; height:80px; padding:16px 0 0 0; border-bottom:1px solid #f0f0f0}
+#homeWrap .news .inner .thumb img{float:left; width:84px; height:59px; margin-left:7px; border:1px solid #ccc; padding:1px}
+#homeWrap .news .inner .thumb .txt{position:absolute; left:98px; top:16px; display:block; width:180px; font-size:11px; height:80px;color:#9c9c9c; padding:0 10px}
+#homeWrap .news .inner .thumb .txt span{font-size:12px; font-weight:bold; color:#333; display:block; padding-bottom:20px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap}
+#homeWrap .news .inner .thumb.paperNews a{float:left;width:90px;margin-left:6px;text-align:center;}
+#homeWrap .news .inner .thumb.paperNews img{float:none;width:86px;height:49px;margin:0;border:1px solid #ccc;padding:1px;vertical-align:top;}
+#homeWrap .news .inner .thumb.paperNews .date{display:block;margin:3px 0 0;color:#9c9c9c;font-size:11px;}
+
+
+/*main middle banner*/
+#homeWrap .midBanner{height:37px}
+#homeWrap .midBanner .inner{width:990px; margin:0 auto; position:relative}
+#homeWrap .midBanner img{margin-top: -35px;margin-right: 15px;}
+
+
+/*main middle block*/
+#homeWrap .farmInfo .farmTab{padding:15px 10px 0 10px}
+#homeWrap .farmInfo .farmTab h3 a{display:block; height:44px; width:100%; background:url(/images/home/mainTab.gif)  no-repeat; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+#homeWrap .farmInfo .farmTab .frm01{width:327px; height:315px}
+#homeWrap .farmInfo .farmTab .frm02{width:364px; height:315px}
+#homeWrap .farmInfo .farmTab .frm03{width:279px; height:315px}
+#homeWrap .farmInfo .farmTab .frm01 h3 a{background-position:0 0}
+#homeWrap .farmInfo .farmTab .frm02 h3 a{background-position:-327px 0}
+#homeWrap .farmInfo .farmTab .frm03 h3 a{background-position:-690px 0}
+#homeWrap .farmInfo .farmTab .frm01 h3 a:hover,
+#homeWrap .farmInfo .farmTab .frm01 h3 a:focus,
+#homeWrap .farmInfo .farmTab .frm01.on h3 a{background-position:0 -44px}
+#homeWrap .farmInfo .farmTab .frm02 h3 a:hover,
+#homeWrap .farmInfo .farmTab .frm02 h3 a:focus,
+#homeWrap .farmInfo .farmTab .frm02.on h3 a{background-position:-327px -44px}
+#homeWrap .farmInfo .farmTab .frm03 h3 a:hover,
+#homeWrap .farmInfo .farmTab .frm03 h3 a:focus,
+#homeWrap .farmInfo .farmTab .frm03.on h3 a{background-position:-690px -44px}
+#homeWrap .farmInfo .farmTab>li{float:left}
+#homeWrap .farmInfo .farmTab article{display:none; width:970px; height:220px; padding-top:10px}
+#homeWrap .farmInfo .farmTab .frm01 article{display:block}
+#homeWrap .farmInfo .farmTab .frm02 article{margin-left:-327px}
+#homeWrap .farmInfo .farmTab .frm03 article{margin-left:-691px}
+#homeWrap .farmInfo .farmTab .titleCtg{position:absolute; right:0; top:10px}
+#homeWrap .farmInfo .farmTab .titleCtg li{display:inline}
+#homeWrap .farmInfo .farmTab .titleCtg li a{font-size:11px; color:#b0b0b0}
+#homeWrap .farmInfo .farmTab .titleCtg li.active a{font-weight:bold; color:#666}
+#homeWrap .farmInfo .farmTab .market,
+#homeWrap .farmInfo .farmTab .food{width:327px; float:left; position:relative}
+#homeWrap .farmInfo .farmTab .city,
+#homeWrap .farmInfo .farmTab .observ{width:334px; float:left; padding-left:30px; position:relative}
+#homeWrap .farmInfo .farmTab .our{width:357px; float:left;position:relative}
+#homeWrap .farmInfo .farmTab .weather,
+#homeWrap .farmInfo .farmTab .today{width:246px; float:left; padding-left:27px; position:relative}
+#homeWrap .farmInfo .farmTab .today01 {position:relative;float:left;width:330px;height:221px;overflow:hidden;padding: 0 0 0 35px;}
+#homeWrap .farmInfo .farmTab .today01 #dataPrice {width:328px; border: 1px solid #ececec !important;}
+#homeWrap .farmInfo .farmTab .today01 ul.todayList {width: 308px !important;}
+#homeWrap .farmInfo .farmTab .today01 span.date {position: absolute; top: 8px; right:0; line-height: 1; font-family: NanumBarunGothic; font-size: 18px; color: #62b9ef;}
+#homeWrap .farmInfo .farmTab .smart{float:left;width:365px;position:relative}
+#homeWrap .farmInfo .farmTab h4{color:#1d1d1d; font:21px '나눔바른고딕', NanumBarunGothic , Tahoma; font-weight:bold; height:35px; line-height:1.7em;}
+
+/*
+#homeWrap .farmInfo .farmTab .guide .wrapper{border:1px solid #f0f0f0; position:relative; height:179px; }
+#homeWrap .farmInfo .farmTab .guide .wrapper .glowText{background:#f7f7f7; width:163px; height:159px; overflow:hidden; background:url(/images/home/glowBg.gif); padding:10px 10px 10px 30px; position:absolute; right:0; top:0; font-size:11px; color:#808080}
+#homeWrap .farmInfo .farmTab .guide .wrapper .glowText span{display:block; padding:0 0 0 27px; margin:5px 0 5px -25px; font: 13px '나눔바른고딕', NanumBarunGothic , Tahoma; color:#e7780b; }
+#homeWrap .farmInfo .farmTab .guide .wrapper .glowText p{font-size:11px}
+#homeWrap .farmInfo .farmTab .guide .wrapper .glowText p.fg{height:75px; font-size:11px; }
+#homeWrap .farmInfo .farmTab .guide .wrapper img{display:block; padding:1px 0 15px 1px}
+#homeWrap .farmInfo .farmTab .guide .wrapper .glow{display:block; padding:0 0 5px 10px; margin-left:8px; font: 14px '나눔바른고딕', NanumBarunGothic , Tahoma; text-decoration:underline; color:#7b7b7b; background:url(/images/home/mainIco.gif) -68px -185px no-repeat }
+*/
+#homeWrap .farmInfo .farmTab .thisMonth{float:left;width:296px;height:197px;padding:12px 14px 0;border:1px solid #f0f0f0;}
+#homeWrap .farmInfo .farmTab .thisMonth .thisMonthHead{padding:0 0 10px;overflow:hidden;}
+#homeWrap .farmInfo .farmTab .thisMonth .thisMonthHead h4{float:left;color:#333;text-indent:0;line-height:35px;font-size:28px;font-weight:bold;font-family:NanumBarunGothic;background:none;}
+#homeWrap .farmInfo .farmTab .thisMonth .thisMonthHead .month{float:left;margin:12px 0 0 5px;color:#206401;font-size:14px;text-decoration:underline;font-family:NanumBarunGothic;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea{float:left;width:147px;margin-right:10px;padding-right:10px;background:url('/images/home/bg_crop_zone.gif') no-repeat right 13px;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea img{width:143px;height:80px;padding:1px;border:1px solid #2c3901;vertical-align:top;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea .cropText{display:block;height:36px;padding:7px 10px 0;color:#458061;font-weight:bold;line-height:16px;overflow:hidden;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea .level{margin:0 0 0 10px;overflow:hidden;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea .level dt{float:left;width:38px;height:14px;margin-right:5px;line-height:15px;color:#696969;text-align:center;font-size:11px;border:1px solid #d6d6d6;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea .level dd{float:left;height:16px;font-size:0;background:url('/images/home/img_star.png') no-repeat 0 0;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea .level dd.star1{width:16px;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea .level dd.star2{width:32px;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea .level dd.star3{width:48px;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea .level dd.star4{width:64px;}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea .level dd.star5{width:80px;}
+#homeWrap .farmInfo .farmTab .thisMonth .workArea{float:left;width:128px;}
+#homeWrap .farmInfo .farmTab .thisMonth .workArea .tit{display:block;padding-left:11px;color:#e6752b;font-weight:bold;background:url('/images/home/bl_org.gif') no-repeat 0 3px;}
+#homeWrap .farmInfo .farmTab .thisMonth .workArea .step{margin:10px 0 0;}
+#homeWrap .farmInfo .farmTab .thisMonth .workArea .step dt{height:21px;line-height:21px;padding-left:10px;color:#fcff00;font-weight:bold;background:#e24f3d;}
+#homeWrap .farmInfo .farmTab .thisMonth .workArea .step dd{display:block;height:101px;padding:0 1px;background:#f9f9f9;}
+#homeWrap .farmInfo .farmTab .thisMonth .workArea .step dd a{display:block;height:45px;line-height:16px;margin:0 3px 7px;padding:5px 0 0;color:#696969;font-size:11px;overflow:hidden;}
+#homeWrap .farmInfo .farmTab .thisMonth .workArea .step dd img{float:left;margin-left:3px;}
+
+#homeWrap .farmInfo .farmTab .city .thumb{position:relative; margin:0 0 10px 0}
+#homeWrap .farmInfo .farmTab .city .thumb img{width:116px; height:78px; padding:1px; border:1px solid #f0f0f0}
+#homeWrap .farmInfo .farmTab .city .thumb .txt{position:absolute; left:119px; top:0; display:block; width:180px; height:80px; font-size:11px; color:#9c9c9c; padding:0 10px}
+#homeWrap .farmInfo .farmTab .city .txt span{font-weight:bold; color:#333; display:block; padding:7px 0;font-size:12px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap}
+#homeWrap .farmInfo .todayWt {display:block;width:246px; height:178px; border:1px solid #f0f0f0; position:relative}
+#homeWrap .farmInfo .todayWt .place{position:absolute; right:5px; font-size:11px; top:5px; color:#5d5d5d}
+#homeWrap .farmInfo .todayWt .place b{color:#5d91af}
+#homeWrap .farmInfo .todayWt .contWt {padding:0 20px 21px 5px; height:189px; position:relative; background:none; border:none}
+#homeWrap .farmInfo .todayWt .contWt .weatherTd {float:left;width:100px;padding-top:0;text-align:center;}
+#homeWrap .farmInfo .todayWt .contWt .weatherTd img {padding-top:0; width:70px;margin:0 0 20px;}
+#homeWrap .farmInfo .todayWt .contWt .weatherTd .tWtTit {display:table-cell;width:100px;margin:10px;height:26px;padding-top:0;vertical-align:top;color:#373737; font:15px '나눔바른고딕',NanumBarunGothic , Tahoma; }
+#homeWrap .farmInfo .todayWt .contWt .weatherTd .tWtTxt {color:#5d5d5d; font:11px '돋움', Dotum, Tahoma;}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp {position:absolute; right:10px; top:28px; width:142px;}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp .temp {color:#d62525; font:34px '나눔바른고딕',NanumBarunGothic , Tahoma; font-weight:bold;}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp .comparison {color:#5d5d5d; font:11px '돋움', Dotum, Tahoma; display:block; padding:5px 0 5px 10px; margin:5px 0 10px 0; background:#fafafa; border-top:1px solid #e7e7e7; border-bottom:1px solid #e7e7e7;}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp .comparison .minimum,
+#homeWrap .farmInfo .todayWt .contWt .weatherTp .comparison .maximum { font-size:11px; margin:0; color:#888}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp .temperature {display:block; height:22px;  padding-left:19px; color:#5d5d5d; font:11px '돋움', Dotum, Tahoma;}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp .temperature b {position:absolute; left:77px;}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp .humidity {background:url(/images/product/humidity.gif) no-repeat}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp .rainfall {background:url(/images/product/rainfall.gif) no-repeat}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp .airVolume {background:url(/images/product/airVolume.gif) no-repeat;}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp .snowfull {background:url(/images/product/snowfull.gif) no-repeat;}
+#homeWrap .farmInfo .todayWt .contWt .WeatherInfo .pointTxt {display:block; clear:both; color:#5d5d5d; font:11px '돋움', Dotum, Tahoma; padding:11px 0 0 0;}
+#homeWrap .farmInfo .todayWt .contWt .WeatherInfo .forecast {padding:32px 0 12px 0;}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp span{margin-left:16px}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp span b{font-weight:100!important}
+#homeWrap .farmInfo .farmTab .market .thumb{position:relative; margin:0 0 10px 0}
+#homeWrap .farmInfo .farmTab .market .thumb img{width:116px; height:78px; padding:1px; border:1px solid #f0f0f0}
+#homeWrap .farmInfo .farmTab .market .thumb .txt{ left:119px; top:0; display:block; width:300px; height:20px; font-size:11px; color:#9c9c9c; padding:0 10px}
+#homeWrap .farmInfo .farmTab .market .txt span{font-weight:bold; color:#333; display:block; padding:0 0 7px 0;font-size:12px; text-overflow:ellipsis; overflow:hidden; float:left; width:300px; white-space:nowrap}
+#homeWrap .farmInfo .farmTab .market .marketSiz{color:#404040; text-align:right; font-size:12px; font-weight:bold; padding-bottom:5px; float:right;}
+#homeWrap .farmInfo .farmTab .market .frm02BodyTxt {clear:both;}
+#homeWrap .farmInfo .farmTab .market .marketSiz img{width:14px; height:12px; border:none; padding:0; margin:0 1px}
+#homeWrap .farmInfo .farmTab .market .priceList{margin-top:12px; border-top:1px solid #ececec;}
+#homeWrap .farmInfo .farmTab .market .priceList li{height:25px; line-height:25px; border-bottom:1px solid #ececec; background:#fbfafa}
+#homeWrap .farmInfo .farmTab .market .priceList li.odd{background:#fff}
+#homeWrap .farmInfo .farmTab .market .priceList li a{float:left; display:block; width:233px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap}
+#homeWrap .farmInfo .farmTab .market .priceList li span{float:right; font-size:11px; font-weight:100; line-height:22px}
+#homeWrap .farmInfo .farmTab .market .priceList li img{width:12px; height:10px; margin:0 1px}
+#homeWrap .farmInfo .farmTab .observ .obsevList{border:1px solid #f0f0f0; padding:10px 0}
+#homeWrap .farmInfo .farmTab .observ .obsevList li {background-color:#fff; height:26px; line-height:26px;padding-left:10px; font-weight:bold}
+#homeWrap .farmInfo .farmTab .observ .obsevList li .tit{display:inline-block; width: 258px; float:left; *display:inline; *zoom:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+#homeWrap .farmInfo .farmTab .observ .obsevList li .btnView{float:right; padding-right:10px; margin-top:0; display:block; *width:50px}
+#homeWrap .farmInfo .farmTab .observ .obsevList li a{display:inline-block; margin-left:5px; width:19px; height:20px; background:url(/images/home/mainIco.gif) no-repeat; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+#homeWrap .farmInfo .farmTab .observ .obsevList li a.pdf{background-position: -83px -251px}
+#homeWrap .farmInfo .farmTab .observ .obsevList li a.play{background-position: -108px -251px}
+#homeWrap .farmInfo .farmTab .observ .obsevList li.odd {background-color:#f5f7ff}
+#homeWrap .farmInfo .farmTab .today .todayList{/*border:1px solid #f0f0f0;*/ background:#fbfafa;padding:10px; width:90%; padding:10px !important;}
+#homeWrap .farmInfo .farmTab .today .todayList li {background:#fbfafa; height:21px; line-height:21px; border-bottom:1px solid #ececec}
+#homeWrap .farmInfo .farmTab .today .todayList li span{float:right}
+#homeWrap .farmInfo .farmTab .today .todayList li>span.linkS{float:left; display:inline-block; *display:inline; *zoom:1; width:145px; height:21px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; line-height:21px; font-size:11px; background:url(/images/home/mainIco.gif) no-repeat; padding:0 0 0 15px}
+#homeWrap .farmInfo .farmTab .today .todayList li.up>span.linkS{background-position: 0 -292px}
+#homeWrap .farmInfo .farmTab .today .todayList li.down>span.linkS{background-position: 0 -312px}
+#homeWrap .farmInfo .farmTab .today .todayList li.same>span.linkS{background-position: 0 -332px}
+#homeWrap .farmInfo .farmTab .today .todayList li.up span{color:#f6695f}
+#homeWrap .farmInfo .farmTab .today .todayList li.down span{color:#2c53e1}
+#homeWrap .farmInfo .farmTab .today .todayList li.same span{color:#333333}
+/*#homeWrap .farmInfo .farmTab .ourWrap{border:1px solid #f0f0f0; padding:20px 0; height:138px}*/
+#homeWrap .farmInfo .farmTab{}
+#homeWrap .farmInfo .farmTab .wrapOur{margin-left:-12px;overflow:hidden;}
+#homeWrap .farmInfo .farmTab .wrapOur img{width:153px; height:106px; padding:1px; border:1px solid #ccc;}
+#homeWrap .farmInfo .farmTab .wrapOur .ourList{float:left;display:block;width:157px;margin-left:12px;}
+#homeWrap .farmInfo .farmTab .wrapOur .ourList img{vertical-align:top;}
+#homeWrap .farmInfo .farmTab .wrapOur .ourList p{margin:8px 0 0;height:65px;line-height:14px;color:#9c9c9c;font-size:11px;}
+#homeWrap .farmInfo .farmTab .wrapOur .ourList p .tit{display:block;height:30px;line-height:16px;margin:0 0 7px;color:#010101;font-size:12px;font-weight:bold;overflow:hidden;}
+#homeWrap .farmInfo .farmTab .smart .thumb{position:relative; margin:0 0 20px 0;overflow:hidden;}
+#homeWrap .farmInfo .farmTab .smart .thumb img{float:left;width:116px;height:76px;margin-right:13px;padding:1px; border:1px solid #ccc}
+/*#homeWrap .farmInfo .farmTab .smart .thumb .txt{position:absolute; left:100px; top:0; display:block; width:147px; height:80px; font-size:11px; color:#9c9c9c; padding:0 10px}*/
+#homeWrap .farmInfo .farmTab .smart .thumb .txt{float:left;width:200px;height:72px;color:#9c9c9c;line-height:14px;font-size:11px;overflow:hidden;}
+#homeWrap .farmInfo .farmTab .smart .thumb .txt span{display:block;height:30px;line-height:16px;margin:7px 0 10px;color:#010101;font-size:12px;font-weight:bold;overflow:hidden;}
+#homeWrap .farmInfo .thisWeek {float:left; padding-left:24px; position:relative; width:250px;}
+#homeWrap .farmInfo .thisWeek h4{background:none; color:#1d1d1d; font:21px '나눔바른고딕', NanumBarunGothic , Tahoma; text-indent:inherit; font-weight:bold; line-height:1.7em;}
+#homeWrap .farmInfo .thisWeek .thisWeekBox{float:left;width:250px;}
+#homeWrap .farmInfo .thisWeek > ul > li {zoom: 1;}
+#homeWrap .farmInfo .thisWeek > ul > li:after {content:""; display: block; clear: both;}
+#homeWrap .farmInfo .thisWeek .innerArea{margin:0 0 20px;overflow:hidden;}
+#homeWrap .farmInfo .thisWeek .innerArea img{float:left;width:98px;height:76px;padding:1px;border:1px solid #ccc;}
+#homeWrap .farmInfo .thisWeek .innerArea .price{overflow:hidden;}
+#homeWrap .farmInfo .thisWeek .innerArea .price .item{height:35px;padding:8px 0 0 10px;color:#010101;font-size:14px;font-weight:bold;font-family:NanumBarunGothic;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+#homeWrap .farmInfo .thisWeek .innerArea .price .rate{float:left;width:55px;padding:15px 0 0;text-align:center;font-size:15px;font-weight:bold;}
+#homeWrap .farmInfo .thisWeek .innerArea .price.up .rate{color:#e40000;background:url('/images/consummer/polyUp.gif') no-repeat 50% 0;}
+#homeWrap .farmInfo .thisWeek .innerArea .price.down .rate{color:#1F5CB5;background:url('/images/consummer/polyDown.gif') no-repeat 50% 0;}
+#homeWrap .farmInfo .thisWeek .innerArea .price dl{float:left;width:92px;text-align:right;}
+#homeWrap .farmInfo .thisWeek .innerArea .price dl dt{float:left;width:35px;height:14px;line-height:15px;margin:0 4px 3px 0;text-align:center;font-size:11px;color:#fff;background:#adadad;}
+#homeWrap .farmInfo .thisWeek .innerArea .price dl dd{height:14px;margin:0 0 3px;float:left;color:#5d5d5d;}
+#homeWrap .farmInfo .thisWeek .btns{position:absolute;right:0;top:7px;}
+#homeWrap .farmInfo .thisWeek .btns a{float:left;width:20px;height:18px;font-size:0;line-height:0;}
+#homeWrap .farmInfo .thisWeek .btns a.prev{background:url('/images/home/btn_thisWeek.gif') no-repeat 0 0;}
+#homeWrap .farmInfo .thisWeek .btns a.next{width:19px;background:url('/images/home/btn_thisWeek.gif') no-repeat right 0;}
+#homeWrap .farmInfo .totalPaging {height:25px; position:absolute; right:5px; top:5px; z-index:100}
+#homeWrap .farmInfo .totalPaging div{height:25px; width:40px; position:absolute; right:0}
+#homeWrap .farmInfo .totalPaging a{background: url(/images/home/slideBtn.gif) no-repeat; width:19px; height:18px; text-indent: -9999px; z-index:99; display:block; float:left}
+#homeWrap .farmInfo .totalPaging .slider-l a{background: url(/images/home/slideBtn.gif) -38px 0 no-repeat;}
+#homeWrap .farmInfo .totalPaging .slider-r a{background: url(/images/home/slideBtn.gif) right 0 no-repeat;width:20px; }
+#homeWrap .farmInfo .thisWeek .bx-viewport{height:200px!important}
+#homeWrap .farmInfo #slider3 li{width:330px !important}
+
+/*main bottom block*/
+#homeWrap .media .mediaTab{width:692px; *margin-top:30px}
+#homeWrap .media .mediaTab li{float:left; width:170px;  display:block}
+#homeWrap .media .mediaTab li h3 a{width:170px; height:36px; float:left; display:block; background:url(/images/home/smartTab.gif) no-repeat; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+#homeWrap .media .mediaTab li.mid01 h3 a{background-position:0 0}
+#homeWrap .media .mediaTab li.mid01 h3 a.off {background-position: 0 -72px !important;}
+#homeWrap .media .mediaTab li.mid02 h3 a{background-position:-170px 0}
+#homeWrap .media .mediaTab li.mid02 h3 a.off {background-position: -170px -72px !important;}
+#homeWrap .media .mediaTab li.mid03 h3 a{background-position:-340px 0}
+#homeWrap .media .mediaTab li.mid03 h3 a.off {background-position: -340px -72px !important;}
+#homeWrap .media .mediaTab li.mid04 h3 a{background-position:-510px 0}
+#homeWrap .media .mediaTab li.mid04 h3 a.off {background-position: -510px -72px !important;}
+#homeWrap .media .mediaTab li.mid01 h3 a:hover,
+#homeWrap .media .mediaTab li.mid01 h3 a:focus,
+#homeWrap .media .mediaTab li.mid01.on h3 a{background-position:0 -36px}
+#homeWrap .media .mediaTab li.mid02 h3 a:hover,
+#homeWrap .media .mediaTab li.mid02 h3 a:focus,
+#homeWrap .media .mediaTab li.mid02.on h3 a{background-position:-170px -36px}
+#homeWrap .media .mediaTab li.mid03 h3 a:hover,
+#homeWrap .media .mediaTab li.mid03 h3 a:focus,
+#homeWrap .media .mediaTab li.mid03.on h3 a{background-position:-340px -36px}
+#homeWrap .media .mediaTab li.mid04 h3 a:hover,
+#homeWrap .media .mediaTab li.mid04 h3 a:focus,
+#homeWrap .media .mediaTab li.mid04.on h3 a{background-position:-510px -36px}
+#homeWrap .media .mediaTab li article{display:none; margin-top:46px; width:672px; padding:5px 0 0 20px}
+#homeWrap .media .mediaTab li.mid01 article{display:block}
+#homeWrap .media .mediaTab li.mid02 article{margin-left:-170px;overflow:hidden;}
+#homeWrap .media .mediaTab li.mid03 article{margin-left:-340px}
+#homeWrap .media .mediaTab li.mid04 article{margin-left:-510px}
+#homeWrap .media .mediaTab .mdPlay1{position:absolute; left:0;width:284px;}
+#homeWrap .media .mediaTab .mdPlay1 .playInfo{height:19px;line-height:19px;margin:0 0 2px;padding:0 5px 0 79px;font-size:11px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;background:url('/images/home/img_onAir.png') no-repeat 0 0; font-weight:bold;}
+#homeWrap .media .mediaTab .mdPlay2{padding-left:300px}
+#homeWrap .media .mediaTab .mdPlay2 .playThumb{position:relative; height:70px; padding-bottom:15px}
+#homeWrap .media .mediaTab .mdPlay2 .playThumb img{position:absolute; left:0}
+#homeWrap .media .mediaTab .mdPlay2 .playThumb p{display:table-cell;padding-left:130px; font-weight:bold; vertical-align:middle; height:70px}
+#homeWrap .media .mediaTab .mdPlay2 .playThumb p a {display:block; color:#2f3743;}
+#homeWrap .media .mediaTab .mdPlay2 .playThumb p a.playThumbTit {font-weight:bold;}
+#homeWrap .media .mediaTab .mdPlay2 .playThumb p a.playThumbTxt {font-weight:normal;}
+
+#homeWrap .media h4{padding:0 0 5px;color:#333;font-weight:bold;font-size:14px;font-family:NanumBarunGothic;}
+#homeWrap .media .comuRecommend{float:left;width:300px;} 
+#homeWrap .media .comuRecommend .imgList li{float:left;width:139px;margin-right:6px;}
+#homeWrap .media .comuRecommend .imgList li a{display:block;border:1px solid #ff6c00;}
+#homeWrap .media .comuRecommend .imgList li img{width:137px;height:109px;vertical-align:top;}
+#homeWrap .media .comuRecommend .imgList li .tit{display:block;height:38px;padding:5px 10px 0;line-height:18px;color:#fff;font-weight:bold;background:#ff6c00;}
+#homeWrap .media .comuPopular{float:right;width:310px;margin-right:25px;}
+#homeWrap .media .comuPopular .textList{margin:7px 0 0;}
+#homeWrap .media .comuPopular .textList li{float:none;width:310px;line-height:24px;overflow:hidden;}
+#homeWrap .media .comuPopular .textList li a{float:left;width:80%;padding-left:10px;color:#333;font-weight:bold;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;background:url('/images/home/dot.gif') no-repeat 0 10px;overflow:hidden;}
+#homeWrap .media .comuPopular .textList li .count{width: 25px; float:right;padding-left:20px;color:#089698;font-size:11px;background:url('/images/home/bg_count.png') no-repeat 0 5px;}
+#homeWrap .media .ceoWhatsNew{float:left;width:315px;}
+#homeWrap .media .ceoWhatsNew .imgList{overflow:hidden;}
+#homeWrap .media .ceoWhatsNew .imgList li{float:left;width:100px;margin-right:4px;}
+#homeWrap .media .ceoWhatsNew .imgList li a{display:block;border:1px solid #e4e4e4;}
+#homeWrap .media .ceoWhatsNew .imgList li img{width:98px;height:114px;vertical-align:top;}
+#homeWrap .media .ceoWhatsNew .imgList li .tit{display:block;height:50px;line-height:16px;padding:4px 10px 0;color:#fff;font-weight:bold;background:#000;overflow:hidden;}
+#homeWrap .media .ceoWeekBest{float:right;width:310px;margin-right:25px;}
+#homeWrap .media .ceoWeekBest .textList{margin:15px 0 0;}
+#homeWrap .media .ceoWeekBest .textList li{float:none;width:auto;line-height:22px;margin:0 0 10px;}
+#homeWrap .media .ceoWeekBest .textList li a{display:block;color:#333;font-weight:bold;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+#homeWrap .media .ceoWeekBest .textList li em{display:inline-block;width:24px;height:24px;margin-right:8px;color:#fff;text-align:center;font-size:13px;font-style:normal;font-family:NanumBarunGothic;background:url('/images/home/bg_lanking.png') no-repeat 0 -36px;}
+#homeWrap .media .ceoWeekBest .textList li.best em{background-position:0 0;}
+#homeWrap .media .magazineNew{float:left;width:300px;}
+#homeWrap .media .magazineNew .mImg{float:left;width:104px;height:148px;margin-right:15px;padding:2px;background:#fff;border:1px solid #e4e4e4;}
+#homeWrap .media .magazineNew .tit{padding:15px 0 0;color:#0e4eb0;font-size:20px;font-weight:bold;font-family:NanumBarunGothic;}
+#homeWrap .media .magazineNew .tit .num{display:block;margin:5px 0 0;font-size:16px;font-weight:normal;}
+#homeWrap .media .magazineNew p{height:70px;margin:15px 0 0;color:#646464;font-size:11px;line-height:18px;overflow:hidden;}
+
+
+#homeWrap .media .magazinePopular{float:right;}
+#homeWrap .media .magazinePopular .imgList li{float:left;width:100px;margin-right:4px;}
+#homeWrap .media .magazinePopular .imgList li img{width:98px;height:130px;vertical-align:top;border:1px solid #e4e4e4;}
+#homeWrap .media .magazinePopular .imgList li .tit{display:block;padding:10px 5px 0;color:#333;font-weight:bold;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+#homeWrap .media .magazinePopular .imgList li .tit em{font-style:normal;margin-right:5px;}
+#homeWrap .media .magazinePopular .imgList li.best .tit em{color:#ff0000;}
+/*banner slide*/
+#homeWrap .media .bnr{position:absolute; right:10px; top:33px; width:247px; height:203px}
+
+#homeWrap .media .bnr .bx-default-pager {position:absolute; top:7px; right:10px; z-index:100}
+#homeWrap .thisWeek .bx-default-pager {position:absolute; top:7px; right:10px; z-index:100}
+
+#homeWrap .media .bnr .bx-default-pager .bx-pager-item,
+#homeWrap .media .bnr .bx-controls-auto .bx-controls-auto-item {display: inline-block;*zoom: 1;*display: inline;}
+#homeWrap .thisWeek .bx-default-pager .bx-pager-item,
+#homeWrap .thisWeek .bx-controls-auto .bx-controls-auto-item {display: inline-block;*zoom: 1;*display: inline;}
+
+#homeWrap .thisWeek .bx-default-pager a {background:url(/images/global/btnPage.gif) 0 0 no-repeat; display: inline-block;*zoom: 1;*display: inline;height: 15px;margin: 0; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+#homeWrap .thisWeek .bx-default-pager .bx-pager-item:first-child a {width:15px; background-position:0 0;}
+#homeWrap .thisWeek .bx-default-pager .bx-pager-item a {width:15px; background-position:-15px 0;}
+
+#homeWrap .media .bnr .bx-default-pager a {background:url(/images/home/bnrCon.png) -12px 0 no-repeat; display: inline-block;*zoom: 1;*display: inline; width:12px;height: 12px;margin: 0; text-indent:-9999px; *text-indent:0; *line-height:0; *zoom:1}
+#homeWrap .media .bnr .bx-default-pager a.active {background:url(/images/home/bnrCon.png) 0 0 no-repeat; }
+
+#slider1 a {display: block;}
+
+
+.gpsBg02 {height:21px;margin-top:4px;line-height:1.7em; padding:0 0 0 5px;color:#4476BA;font-size:12px;font-weight:bold;text-align:right;}
+
+/* 140407 Add */
+
+#homeWrap .recipe {width: 248px; float: left;}
+#homeWrap .farmInfo .farmTab div.recipe h4 {background-position: -228px -644px;}
+.farmTab .conBanner {padding:0; width:auto;}
+.thisWeek .bx-controls-direction {position:absolute; right:0; top:0;}
+#homeWrap .recipe > ul > li {margin: 0 0 20px; zoom: 1;}
+#homeWrap .recipe > ul > li:after {content:""; display: block; clear: both;}
+#homeWrap .recipe > ul > li > div {float: left;}
+#homeWrap .recipe > ul > li > div.wrap > div {float: left;}
+#homeWrap .recipe > ul > li > div.wrap div.img {width: 92px; height: 76px; margin: 0 13px 0 0; padding: 1px; border: 1px solid #cccccc;}
+#homeWrap .recipe > ul > li > div.wrap div.txt {width: 139px;}
+#homeWrap .recipe > ul > li > div.wrap div.txt {}
+#homeWrap .recipe > ul > li > div.wrap div.txt dl {padding: 9px 0 0 0;}
+#homeWrap .recipe > ul > li > div.wrap div.txt dl dt {margin: 0 0 5px; color: #333333; font-weight: bold;}
+#homeWrap .recipe > ul > li > div.wrap div.txt dl dd {font-size: 11px; color: #9c9c9c;}
+#homeWrap .recipe > ul > li > div.wrap div.txt dl dd > span:first-child {display: block; margin: 0 0 10px; color: #08969a;}
+#homeWrap .recipe > ul > li > div.wrap div.txt > a {display: block;}
+#homeWrap .recipe > ul > li {}
+#homeWrap .recipe > ul > li {}
+#homeWrap .recipe {}
+#homeWrap .recipe {}
+#homeWrap .recipe {}
+
+.conBanner{position:relative; padding:30px 0 0 0; width:202px}
+.conBanner .bx-pager{display:none}
+.conBanner .bx-controls-direction a{padding:0; background: url(../../images/news/control.gif) no-repeat; width:19px; height:20px; text-indent: -9999px; z-index:9999; display:block; position:absolute; top:0}	
+.conBanner .bx-controls-direction a.bx-prev{background: url(../../images/news/control.gif) left 0 no-repeat; left:161px; }
+.conBanner .bx-controls-direction a.bx-next{background: url(../../images/news/control.gif) right 0 no-repeat; left:180px; width:20px}
+
+
+
+/* 메인페이지 SNS(페이스북)추가로 변경된 CSS*/
+#homeWrap .farmInfo_2016{ height:345px; }
+#homeWrap .farmInfo_2016 .farmTab {padding: 15px 0px 0 10px;width:722px;overflow:hidden; }
+#homeWrap .farmInfo_2016 .farmTab > li{width:223px !important; box-sizing:border-box}
+#homeWrap .farmInfo_2016 .farmTab li.frm01{ width:224px !important}
+#homeWrap .farmInfo .farmTab .frm02 article{ margin-left:-224px !important}
+#homeWrap .farmInfo .farmTab .frm03 article{ margin-left:-447px !important}
+
+#homeWrap .farmInfo_2016 .thisWeek .bx-viewport { height:100px!important;}
+#homeWrap .farmInfo_2016 .farmTab li > article{ width:670px !important;  position:relative; box-sizing:border-box; height:266px}
+#homeWrap .farmInfo_2016 .farmTab .thisMonth{ height:auto}
+
+#homeWrap .farmInfo .farmTab .thisMonth{float: left; width: 380px; padding: 0px 0px 15px 0; border: none; border-bottom: 1px solid #f0f0f0; margin-top:0px}
+#homeWrap .farmInfo .farmTab .thisMonth .thisMonthHead h4{color: #1d1d1d;  font-family: "나눔바른고딕",NanumBarunGothic,Tahoma; font-size: 21px;font-weight: bold;  height: 35px;  line-height: 1.7em; padding-bottom:0}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea{ background-image:none; height:80px;  overflow:hidden;  outline:1px solid #2c3901;width:140px; padding:0px;  font-size:0; line-height:0; border:1px solid #fff; margin-top:1px }
+#homeWrap .farmInfo .farmTab .thisMonth .thisMonthHead{ padding-bottom:0px }
+#homeWrap .farmInfo .farmTab .thisMonth .thisMonthHead .month{ margin-top:7px}
+#homeWrap .farmInfo .farmTab .thisMonth .cropArea img{ width:140px; height:auto; border:none; margin:-1px 0 0 -1px}
+#homeWrap .farmInfo .farmTab .thisMonth .cropText{}
+#homeWrap .farmInfo .farmTab .thisMonth .workArea { border-left:1px solid #f0f0f0; overflow:hidden; height:80px; padding:0 0 0 10px; width:auto; width:215px }
+#homeWrap .farmInfo .farmTab .thisMonth .workArea .step{ margin-top:5px}
+#homeWrap .farmInfo .farmTab .thisMonth .workArea .step dt a{ color:inherit}
+#homeWrap .farmInfo .farmTab .thisMonth .workArea .step dd{ height:auto; background:none; overflow:hidden; margin-top:3px }
+/* 도시농업 */
+#homeWrap .farmInfo .farmTab .city{ position:absolute; left:0; top:149px; padding:0; width:380px !important; clear:both; float:none}
+#homeWrap .farmInfo .farmTab .city .thumb span.img{background-image:none; height:80px;  overflow:hidden; width: auto; padding:0px; border:1px solid #ccc; display:block; float:left}
+#homeWrap .farmInfo .farmTab .city .thumb img{ width:140px; height:auto; border:none; clear:both; float:none}
+#homeWrap .farmInfo .farmTab .city .thumb .txt{ position:relative ; left:auto; top:auto; float:left; margin:0 0 0 21px ; padding:0;  width:215px }
+
+/* 날씨 */
+#homeWrap .farmInfo .farmTab .weather{ float:right; padding-left:0; margin-right:2px; margin-top:0px; width:255px}
+#homeWrap .farmInfo .todayWt{ width:100%; height:auto; overflow:hidden}
+#homeWrap .farmInfo .todayWt .contWt{ height:auto; overflow:hidden; padding:13px 7px 17px 7px}
+.gpsBg02{ position:absolute; left:10px; bottom:20px; width:100px; overflow:hidden; padding:0; margin:0; height:auto; text-align:center; line-height:1.3em}
+.gpsBg02 strong{ display:block}
+#homeWrap .farmInfo .todayWt .contWt .weatherTd{ width:100px; margin-top:0px}
+#homeWrap .farmInfo .todayWt .contWt .weatherTd img{ display:block; margin:0 auto; width:90px}
+#homeWrap .farmInfo .todayWt .contWt .weatherTd span{ display:block; margin:0 auto; width:auto; text-align:center}
+#homeWrap .farmInfo .todayWt .contWt .weatherTd .tWtTit{ width:auto; display:block; text-align:center; height:auto; margin:0 auto}
+#homeWrap .farmInfo .todayWt .contWt .weatherTp{ position:relative; right:auto; top:5px; float:right; width:125px; margin-right:7px; }
+#homeWrap .farmInfo .todayWt .contWt .temperature{ margin-left:0 !important}
+#homeWrap .farmInfo .todayWt .contWt .temperature b{ margin-left:0 !important; padding-left:0 !important; left:65px !important}
+/* 농업경영장부 배너*/
+#homeWrap .midBanner{ position:absolute; top:290px; left:423px; margin:0; padding:0; width:255px; height:32px; border:1px solid #999999; overflow:hidden}
+#homeWrap .midBanner .inner{ width:auto; margin:0; padding:0}
+#homeWrap .midBanner .inner a{ display:block; height:100%; text-align:center }
+#homeWrap .midBanner .inner a span{ width:246px; height:30px; display: block; overflow:hidden; background:#fff; margin:0 auto }
+#homeWrap .midBanner .inner a span img{ margin:-1px 0 0 -1px !important}
+/* 실시간 가격 */
+
+#homeWrap .farmInfo .farmTab .frm02 .today01 { position: relative;    float: right;    width: 257px !important;    height: 212px;    overflow: hidden;  padding:0 0px !important; }
+#homeWrap .farmInfo .farmTab .frm02 .today01 #dataPrice{  height:175px !important; width:253px; background:#fbfafa}
+#homeWrap .farmInfo_2016 .farmTab .frm02 .today01 ul.todayList{ width:253px !important;  box-sizing:border-box; height:156px; overflow:hidden; padding-top:15px !important}
+#homeWrap .farmInfo_2016 .farmTab .frm02 .today01 ul.todayList li{ width:100% !important; box-sizing:border-box !important}
+
+/* 시황정보 */
+#homeWrap .farmInfo .farmTab .market .priceList{ margin-top:0 }
+#homeWrap .farmInfo .farmTab .market{ width:380px !important}
+/* 알뜰장보기 */
+#homeWrap .farmInfo li.frm02 .thisWeek{ width: 380px !important;  padding-left:0}
+#homeWrap .farmInfo .thisWeek .thisWeekBox{  width:100% !important; float:none; }
+#homeWrap .farmInfo .thisWeek h4{ margin-bottom:-1px}
+#homeWrap .farmInfo #slider3 li{ width:auto !important; height:150px !important; overflow:hidden !important;}
+#homeWrap .farmInfo .thisWeek .innerArea img{display:block; margin:0 auto; width:140px !important; height:auto !important; border:none !important}
+#homeWrap .farmInfo .thisWeek .innerArea{  width:380px !important; margin:0 !important;}
+#homeWrap .farmInfo .thisWeek .innerArea a{background-image:none; height:98px;  overflow:hidden; width:140px; padding:0px;  display:block; float:left; box-sizing:border-box !important; overflow:hidden; border:1px solid #cccccc; margin-right:-1px;}
+#homeWrap .farmInfo .totalPaging { right:0}
+#homeWrap .farmInfo .totalPaging div span a{ }
+#homeWrap .farmInfo .thisWeek .innerArea .price{ border:1px solid #ccc; height:96px;}
+#homeWrap .farmInfo .thisWeek .innerArea .price dl{ width:120px !important}
+#homeWrap .farmInfo .thisWeek .innerArea .price dl dt{ margin-right:10px; font-size:12px; width:50px; height:17px; clear:both; float:left; margin-bottom:5px; line-height:17px; letter-spacing:-1px}
+#homeWrap .farmInfo .thisWeek .innerArea .price .item{ font-size:16px; padding-left:20px; padding-top:12px; height:28px}
+#homeWrap .farmInfo .thisWeek .innerArea .price .rate{ width:110px; font-size:22px;font-family: Verdana,Tahoma,"돋움",Dotum,sans-serif;}
+
+/**/
+#homeWrap .farmInfo .farmTab .wrapOur img{}
+#homeWrap .farmInfo .farmTab .wrapOur {width:380px !important; margin:0; padding:0; }
+#homeWrap .farmInfo .farmTab .wrapOur .ourList{ width:180px; margin:0 0 0 20px; padding:0; overflow:hidden; line-height: 14px; color: #9c9c9c; font-size: 11px;}
+#homeWrap .farmInfo .farmTab .wrapOur .ourList:first-child{ margin-left:0}
+#homeWrap .farmInfo .farmTab .wrapOur .ourList span.img{ width:180px; height:115px; display:block; text-align:center; overflow:hidden;border:1px solid #cccccc;box-sizing:border-box !important; margin:0; padding:0; display:block; margin-bottom:15px; }
+#homeWrap .farmInfo .farmTab .wrapOur .ourList span.img img{ width:180px; height:auto; border:none; vertical-align:middle}
+#homeWrap .farmInfo .farmTab .wrapOur .ourList span.tit{ display:block; font-weight:bold; margin:0 0 10px 0; font-size:12px; color:#010101; line-height:16px; height: 30px; }
+
+#homeWrap .farmInfo .farmTab .smart{ float:right;width:257px !important; height:auto;  padding:0; margin:0 }
+#homeWrap .farmInfo .farmTab .smart .thumb{ margin-bottom:0}
+#homeWrap .farmInfo .farmTab .smart .thumb .txt{ width:125px;height:auto; margin:-15px 0 0 0; padding:0; float:right}
+#homeWrap .farmInfo .farmTab .smart .thumb .txt span{ height:15px; line-height:30px; overflow:hidden; display:block; padding:3px 0 10px 0}
+
+#homeWrap .farmInfo .farmTab .smart .thumb span.img{ display:block; overflow:hidden; height:68px;border:1px solid #cccccc;box-sizing:border-box !important; margin:0; padding:0; width:115px; float:left  }
+#homeWrap .farmInfo .farmTab .smart .thumb span.img img{ width:115px; height:auto; border:none; vertical-align:middle; border:none}
+
+#homeWrap .recipe{ position:absolute; right:0; top:120px;width: 257px !important; height:auto;  padding:0; margin:0}
+#homeWrap .recipe .img{ display:block; overflow:hidden; height:68px !important;border:1px solid #cccccc;box-sizing:border-box !important; margin:0; padding:0; width:115px !important; float:left }
+#homeWrap .recipe .img img{ width:115px; height:auto; border:none; vertical-align:middle}
+#homeWrap .recipe > ul > li > div.wrap div.txt{width:125px;height:auto; margin:0; padding:0; float:right;}
+#homeWrap .recipe > ul > li > div.wrap div.txt dl{ padding:0; margin:3px 0 0 0; }
+#homeWrap .recipe > ul > li > div.wrap div.txt dl dd p{ font-size:11px}
+#homeWrap .recipe > ul > li > div.wrap div.txt dl dd > span:first-child{ margin-bottom:5px}
+/* sns */
+#homeWrap .snswrap{width:247px; position:absolute; right:10px; top:0;  padding:20px 0px 0 0px; box-sizing:border-box}
+#homeWrap .snswrap h3{color: #1d1d1d;  font-family: "나눔바른고딕",NanumBarunGothic,Tahoma;  font-style: normal;  font-size:15px; font-weight: bold;   line-height: 1.1em; background: url(/images/home/sns_facebook.png) no-repeat 0px 4px; padding-left:28px; width:62px; border-bottom:1px solid #ccc; height:35px; letter-spacing:-1px;}
+#homeWrap .snswrap > article{  width:53px; margin-right:-1px; float:left  }
+#homeWrap .snswrap > article h4{ display:block; width:53px; position:absolute; right:52px; top:20px; height:36px; overflow:hidden }
+#homeWrap .snswrap article.f1 h4{right:104px;}
+#homeWrap .snswrap article.f3 h4{right:0 !important;}
+#homeWrap .snswrap article.f3{ margin-right:0 !important;}
+
+#homeWrap .snswrap article:last-child h4{ left:auto; right:0}
+#homeWrap .snswrap > article h4 a{font-size:13px; font-family: "나눔바른고딕",NanumBarunGothic,맑은고딕, 돋움,Tahoma;  font-style: bold; color:#666; padding:10px 0 ; display:block; width:100%; height:100% ;background:#fafafa; border:1px solid #ccc; text-align:center; box-sizing:border-box }
+#homeWrap .snswrap > article h4 a.on{ color:#333; background:#fff; border-bottom:1px solid #fff; font-weight:bold}
+#homeWrap .snswrap > article > .snsiframe{width:247px; height:279px; border:1px solid #ccc; box-sizing:border-box; border-top:none; padding:0 0 0 0; position:absolute; left:0; top:56px  }
+#homeWrap .snswrap > article > .snsiframe{ display:none}
+#homeWrap .snswrap > article .on{ display:block}

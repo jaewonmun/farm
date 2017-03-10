@@ -1,0 +1,212 @@
+@CHARSET "UTF-8";
+	
+.sortYM{}
+.sortYM dl{position:relative; text-align:right; height:29px; margin-bottom:20px; border-bottom:1px solid #ccc}
+.sortYM dt{position:absolute; left:0; width:84px; height:29px; background:url(/images/consummer/yearSel.gif) no-repeat}
+.sortYM dt a{color:#fff; display:block; width:74px; padding-left:20px; height:100%; text-align:left; line-height:31px; font-size:15px; font-family:'나눔바른고딕', NanumBarunGothic, Tahoma}
+.sortYM dd{display:inline; margin-left:8px; font:12px '나눔바른고딕',NanumBarunGothic, Tahoma;}
+.sortYM dd a{display:inline-block;width:28px; font-size:12px; line-height:29px; text-align:center}
+.sortYM dd a:hover, .sortYM dd a:focus, .sortYM dd a.on{color:#ff6c00; font-size:12px; font-weight:bold}
+.sortYM dt .selectDv{display:none; position:absolute; left:0; z-index:90; width:82px; background:#fff; border:1px solid #01649d; border-top:none}
+.sortYM dt .selectDv ul{width:84px; *width:82px}
+.sortYM dt .selectDv ul li {*height:25px}
+.sortYM dt .selectDv ul li a{color:#666; width:62px; display:block;  *height:25px}
+.sortYM dt .selectDv ul li.on a, .sortYM dt .selectDv ul li:hover a, .sortYM dt .selectDv ul li:focus a{background:#0078bd; color:#fff}
+.sortYM dt .selectDv ul li.on{*background:#0078bd}
+
+.weekWrapper{border-bottom:1px solid #333; margin:35px 0 35px 0; padding-bottom:5px}
+.weekWrapper .shopTit{border-bottom:2px solid #0078bd; padding:0 0 6px 0; margin:30px 0 15px 0; clear:both} 
+.weekBox{width:166px; height:242px; border:1px solid #d3d3d3; position:relative; float:left;margin:0 0 10px 10px}
+.weekBox2 {width:169px; height:auto; margin:0; background:#f8f7fc; padding:3px;}
+.weekBox .thumb{height:131px; position:relative}
+.weekBox h4{position:absolute; left:0; top:109px; width:159px; height:19px; padding:3px 0 0 8px; background:#000; font:14px '나눔바른고딕',NanumBarunGothic, Tahoma; color:#fff;}
+.weekBox .dscpt{width:166px; height:51px; background:#f9f9f9}
+.weekBox .dscpt .imgDscpt{display:inline-block; *display:inline; *zoom:1; width:56px; height:41px; padding:10px 0 0 0;  color:red; float:left; text-align:center}
+.weekBox .dscpt .imgDscpt strong{display:block}
+.weekBox .dscpt .price{display:inline-block; *display:inline; *zoom:1; width:95px; height:41px ;padding:10px 0 0 5px; color:#5d5d5d}
+.weekBox .dscpt .price2 {display:inline-block; *display:inline; *zoom:1; width:95px; padding:0 0 0 9px; margin:10px 0; color:#5d5d5d; border-left:1px solid #e2e2e2;}
+.weekBox .dscpt .price img, .weekBox .dscpt .price2 img{vertical-align:middle; margin:0; padding-right:3px}
+.weekBox p{color:#5d5d5d; font-size:11px; padding:6px; line-height:14px}
+.weekBox p strong{color:red; font-weight:bold}
+.weekBox.down .dscpt .imgDscpt{color:#1f5cb5}
+.weekBox.down p strong{color:#1f5cb5}
+
+.salesInfo{padding:35px 0 0 0;}
+.salesInfo .view table thead th{ border-left:1px solid #9c9c9c}
+.salesInfo .view table thead th,
+.salesInfo .view table tbody th{background: #f5f8fd; font-weight:100; vertical-align:middle; text-align:center; border-bottom:1px solid #9c9c9c;  height:27px; padding:0; line-height:27px}
+.salesInfo .view table tbody th{background: #fafafa; border-right:1px solid #9c9c9c;}
+.salesInfo .view table td{color:#605d5d; height:27px; padding:0 0 0 3px; line-height:27px; border-left:1px solid #9c9c9c;border-top:1px solid #ccc;border-bottom:0;}
+.salesInfo .view table tr.tline td{border-top:1px solid #9C9C9C;}
+.salesInfo .view .nl{border-left:none}
+.salesInfo .view .nr{border-right:none}
+.salesInfo .view .nb{border-bottom:none}
+.salesInfo .view .nt{border-top:none}
+
+.marketVs{padding:30px 0 0 0;}
+.marketVs h3{padding-bottom:10px}
+.marketVs .oldWin{width:354px; float:left}
+.marketVs .oldWin ul li{height: 127px; overflow: hidden; position: relative; margin-top:43px; font-size: 0; text-align: center;}
+.marketVs .oldWin ul li > div {height: 87px; overflow: hidden;}
+.marketVs span.bg {width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1; background: url(/images/consummer/bg_off.png) no-repeat;}
+.marketVs .oldWin .vsPrice b{display:none}
+.marketVs .oldWin .vsPrice{background:url(/images/consummer/vsPrice.gif) no-repeat; height:40px; position:relative; z-index: 2;}
+.marketVs .oldWin .vsPrice .old{position:absolute; left:60px; bottom:0; color:#232323; font:30px Arial Black; letter-spacing:-1px }
+.marketVs .oldWin .vsPrice .new{position:absolute; left:280px; color:#fff; bottom:5px; font:20px Tahoma; letter-spacing:-1px}
+.marketVs .oldWin li{position:relative}
+.marketVs .oldWin li img {max-width: 100%;}
+.marketVs .oldWin h4{font:16px '나눔바른고딕',NanumBarunGothic, Tahoma; font-weight:bold; color:#333;vertical-align:bottom; display:inline; position:absolute; bottom:45px; left: 0; z-index: 3;}
+.marketVs .oldWin h4.leftAlign {text-align:left; width:98px;}
+/*.marketVs .oldWin .circleImg{position:relative; margin-left:130px; vertical-align:bottom; width:105px; height:87px;}*/
+.marketVs .oldWin .gab{position:absolute; right:0; bottom:45px; font:12px '나눔바른고딕',NanumBarunGothic, Tahoma; color:#333; z-index: 3;}
+.marketVs .oldWin .gab strong{font:15px '나눔바른고딕',NanumBarunGothic, Tahoma; color:#006cff; padding-left:3px}
+.marketVs .newWin{width:354px; float:right}
+.marketVs .newWin ul li{margin-top:43px}
+.marketVs .newWin ul li > div {height: 87px; overflow: hidden;}
+.marketVs .newWin .vsPrice b{display:none}
+.marketVs .newWin .vsPrice{background:url(/images/consummer/vsPrice.gif) 0 -40px no-repeat; height:40px; position:relative; z-index: 2;}
+.marketVs .newWin .vsPrice .old{position:absolute; left:60px; color:#fff; bottom:5px; font:20px Tahoma; letter-spacing:-1px}
+.marketVs .newWin .vsPrice .new{position:absolute; left:235px; bottom:0; color:#232323; font:30px Arial Black; letter-spacing:-1px }
+.marketVs .newWin li{position:relative; font-size: 0; text-align: center;}
+.marketVs .newWin li img {max-width: 100%;}
+.marketVs .newWin h4{font:16px '나눔바른고딕',NanumBarunGothic, Tahoma; font-weight:bold; color:#333;vertical-align:bottom; display:inline; position:absolute; right:0; bottom:45px; z-index: 3;}
+.marketVs .newWin h4.leftAlign {text-align:left; width:98px;}
+/*.marketVs .newWin .circleImg{position:relative; margin-left:130px; vertical-align:bottom; width:105px; height:87px;}*/
+.marketVs .newWin .gab{position:absolute; left:0; bottom:45px; font:12px '나눔바른고딕',NanumBarunGothic, Tahoma; color:#333; z-index: 3;}
+.marketVs .newWin .gab strong{font:15px '나눔바른고딕',NanumBarunGothic, Tahoma; color:#006cff; padding-left:3px}
+
+.todayTip{min-height:310px; position:relative; padding:50px 0 0 0;}
+.todayTip .tipImg{padding:2px; border:1px solid #ccc; position:absolute; top:84px}
+.todayTip .view{margin-left:355px; border:none}
+.todayTip .view table{border-top:2px solid #0078bd}
+.todayTip .view table td{color:#888888; line-height:1.7}
+h3.shopTit2 {padding:0 0 10px 15px;}
+
+/* 홈 */
+
+	.consummWrap {border-top:1px solid #d5d5d5; border-bottom:1px solid #d5d5d5; padding:15px 0;}
+	.shopInfo {border-left:1px solid #d25400; border-right:1px solid #d25400; padding:0 19px;}
+	.shopRd {background:url(/images/consummer/bottomRd.gif) no-repeat; width:705px; height:16px; margin-left:-1px;}
+	.shopInfo p a {font:11px '돋움', Dotum, Tahoma; color:#5d5d5d;}
+
+	.contentCm2 h3.newsTit3 {padding:25px 0 10px 0;}
+	.contentCm2 h3.newsTit4 {padding:30px 0 10px 0;}
+	.conMainWrap {border:1px solid #545e64;}
+	.conMain{border:4px solid #586878; padding:17px 36px}
+	.conMainTxt {border-bottom:1px solid #e8e8e8; position:relative; padding-bottom:17px;}
+	.conMainFirst {width:311px; position:absolute; left:0;}
+	.conMainTxt .img3 {padding-left:343px;}
+	.conMainFirst .shopTit05 {padding:31px 0 24px 0; color:#333333; font:26px  '나눔바른고딕',NanumBarunGothic, Tahoma;}
+	.conMainFirst p {font:11px '돋움', Dotum, Tahoma; color:#939393; line-height:1.5em;}
+	.conMainFirst .pageArw2 {text-align:right; display:block; padding:10px 0 0 0; color:#1f5cb5; font:11px '돋움', Dotum, Tahoma;}
+	.conMainFirst .pageArw2 img {padding:0 0 2px 3px;}
+	.consumSlide{padding:11px 0 0 0;}
+	.consumSlide h4{margin:0 0 10px 0}
+	.consumSlide .cnt{padding:0 0 0 20px; position:relative; height:100px; }
+	.consumSlide .cnt .bx-pager{position:absolute; top:-20px; right:0; font-size:11px; color:#9f9f9f}
+	.consumSlide .cnt .bx-controls-direction a{padding:0; background: url(../../images/consummer/page2.gif) no-repeat; width:10px; height:19px; text-indent: -9999px; z-index:9999; display:block; position:absolute; top:40px}	
+	.consumSlide .cnt .bx-controls-direction a.bx-prev{background: url(../../images/consummer/page2.gif) left 0 no-repeat; left:0}
+	.consumSlide .cnt .bx-controls-direction a.bx-next{background: url(../../images/consummer/page2.gif) right 0 no-repeat; right:0}
+	.consumSlide .connect li{float:left; width:260px; height:100px; font-size:11px; padding-right:60px}
+	.consumSlide .connect li img{position:absolute; left:0; top:0}
+	.consumSlide .connect li a{height:90px; vertical-align: top; padding-left:120px; display:block}
+	.consumSlide .connect li a h5{margin:0; color:#e86808; font-weight:bold}
+	.consumSlide .connect li a p{font-size:11px; margin-top:10px}
+	
+	.conHomeTab {height:342px; }
+	.conHomeTab .weekBox2{padding:0; width:175px; position:relative; border-bottom:1px solid #d25300; border-left:none}
+	.conHomeTab .weekBox3 {width:139px !important;}
+	.conHomeTab .weekBox2 h5{background:#fff; color:#333; height:26px; font:13px '나눔바른고딕',NanumBarunGothic , Tahoma; line-height:26px; text-align:center }
+	.conHomeTab .weekBox2.on h5, .conHomeTab .weekBox3.on h5, .conHomeTab .weekBox4.on h5 {background:#ff8a0e; color:#fff}
+	.conHomeTab .weekBox2.on{border:1px solid #d25300; border-bottom:1px solid #fff;}
+	.conHomeTab .weekBox2 .shopNt{display:none; position:absolute; left:-1px; top:186px; *top:183px; width:703px; min-height:30px; border-left:1px solid #d25300; border-right:1px solid #d25300;}
+
+	.conHomeTab .weekBox2.on .shopNt{display:block; background:#fff; z-index:11;}
+	.conHomeTab .weekBox2.on .shop2{left:-177px}
+	.conHomeTab .weekBox2.on .shop3{left:-353px}
+	.conHomeTab .weekBox2.on .shop4{left:-529px}
+	.conHomeTab .weekBox .thumb{height:auto;}
+	.weekBox .thumb img.thumbImg {width:166px; height:109px;}
+
+	.conBanner{position:relative; padding:30px 0 0 0; width:202px}
+	.conBanner .bx-pager{display:none}
+	.conBanner .bx-controls-direction a{padding:0; background: url(../../images/news/control.gif) no-repeat; width:19px; height:20px; text-indent: -9999px; z-index:9999; display:block; position:absolute; top:0}	
+	.conBanner .bx-controls-direction a.bx-prev{background: url(../../images/news/control.gif) left 0 no-repeat; left:161px; }
+	.conBanner .bx-controls-direction a.bx-next{background: url(../../images/news/control.gif) right 0 no-repeat; left:180px; width:20px}
+	.conBanner img{border:1px solid #e1e3e3}
+
+	.smartConsummer {border-top:1px solid #d5d5d5; border-bottom:1px solid #d5d5d5; padding:15px 20px;}
+	.scmBox1 {float:left; width:332px; border-right:1px dashed #ededed; position:relative; }
+	.scmBox2 {float:left; width:309px; padding-left:23px; position:relative;}
+	.scmBox3 {clear:both;}
+	#content .scmBox1 .title {font:12px '돋움', Dotum, Tahoma; color:#333333; font-weight:bold; position:absolute; right:48px; top:8px;}
+	#content .scmBox2 .title {font:12px '돋움', Dotum, Tahoma; color:#333333; font-weight:bold; position:absolute; right:25px; top:8px;}
+	.scmBox1 .title a, .scmBox2 .title a {padding-top:19px; color:#939393; font:11px '돋움', Dotum, Tahoma; display:block;}
+	
+	.csum {margin:15px 20px 0 20px; overflow:hidden;}
+	.csum01 {width:263px; float:left;}
+	.csum01 .shop {padding:0 16px 24px 0; color:#5d5d5d; font:12px '돋움', Dotum, Tahoma;}
+	.csum01 .shop b {color:#e40000;}
+	.csum02 {float:left; width:400px;}
+	.csum03 {float:left; width:128px;}
+	.csum04 {float:left;}
+	.conHomeTab .weekBox2 h5.shopTitle {background:#fff; text-align:left;}
+	.martPrice {font:12px '돋움', Dotum, Tahoma; color:#e2e2e2;}
+	.martPrice b {font-weight:normal; color:#5d5d5d;}
+	
+
+	.sideConsumm .sideTab2 li.on, .sideConsumm .sideTab2 li:hover {border:1px solid #aaa; border-bottom:1px solid #fff;}
+	.sideConsumm .sideTab2 li {display:inline-block; float:left; width:66px; height:28px; border-right:1px solid #ccc; border-bottom:1px solid #aaa; border-top:1px solid #ccc;}
+	.sideConsumm .sideTab2 li.on a {color:#000;}
+	.sideConsumm .sideTab2 li a {display:inline-block; width:66px; height:28px; line-height:28px; text-align:center;}
+	.newsMore4 {position: absolute; right: 0; top: 25px;}
+	.sideConsumm {width:220px;}
+	.sideCustom {height:auto; padding:10px 0 25px 0; overflow: hidden; position: relative;}
+	.sideCustom02 {height:194px;}
+	.sideTit span.sideText {font:12px '돋움', Dotum, Tahoma; color:#5e5e5e; background:url(/images/global/dot.gif) 0 8px no-repeat;
+	padding-left:10px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#5e5e5e; font:12px '돋움', Dotum, Tahoma; line-height:1.8em; margin:0 8px;}
+	.conBanner h5 {position:absolute; left:0; top:0;}
+	.conBanner h5 img {border:none;}
+	.dateConsum {display:block; text-align:right; color:#aaaaaa; font:11px '돋움', Dotum, Tahoma; padding:4px 8px 25px 8px; border-bottom:1px solid #e6e6e6; margin-bottom:26px;}
+	.asideTxt {color:#284e85; padding-top:10px; font-weight:bold;}
+	.sideTxt01 {padding:8px 0;  min-height:10px; border-top:1px solid #e5e5e5; border-bottom:1px solid #e5e5e5; position:relative; display:block;}
+	.sideTxt01 .product, .sideTxt02 .product {width:40%; font-weight:normal; display:block; position:absolute; left:0;}
+	.sideTxt01 .product2, .sideTxt02 .product2 {width:50%; display:block; padding-left:50%; text-align:right; position:absolute; right:0;}
+	.pdCount {position:absolute; left:48%; font-weight:normal;}
+	.sideTxt02 {padding:8px 0;  min-height:10px; border-bottom:1px solid #e5e5e5; position:relative; display:block;}
+	.sideCont2 {padding:40px 10px 15px 10px!important;}
+
+	.foodBox {padding:0 8px 25px 8px; border-bottom:1px solid #e6e6e6; margin:0 0 16px 0; width:189px;}
+	.foodBox2 {padding:0 8px; width:189px;}
+	.foodBox img, .foodBox2 img {width:187px;}
+
+
+/* 안심레시피 */
+.cmCount02 {padding:5px 0 0 6px; display:block; color:#08969a; font:11px '돋움', Dotum, Tahoma;}
+.visualRecipe{padding:15px;border-top:2px solid #0078bd;border-bottom:1px solid #696969;overflow:hidden;}
+.visualRecipe img{float:left;width:301px;height:186px;margin-right:20px;padding:1px;border:1px solid #ccc;}
+.visualRecipe .cookInfo{width: 365px; float:left;margin:10px 0 0;}
+.visualRecipe .cookInfo .tit{color:#333;font-size:25px;font-weight:normal;font-family:NanumBarunGothic;}
+.visualRecipe .cookInfo p{height:43px;margin:15px 0 0;color:#04653a;font-size:13px;font-family:NanumBarunGothic;}
+.visualRecipe .cookInfo dl{width:340px;padding:10px 10px 3px;background:#f9f9f9;overflow:hidden;}
+.visualRecipe .cookInfo dl dt{float:left;min-width:45px;margin:0 10px 7px 0;padding:0 5px;height:16px;line-height:17px;color:#fff;text-align:center;font-size:11px;background:#d13100;}
+.visualRecipe .cookInfo dl dd{margin:0 0 7px;height:16px;line-height:16px;color:#5d5d5d;}
+.basicRecipe{margin:20px 40px 50px 20px;color:#474747;}
+.basicRecipe h3{margin:0 0 20px -5px;color:#811e00;font-size:17px;font-weight:bold;font-family:NanumBarunGothic;}
+.basicRecipe h4{display:inline-block;padding:20px 7px 10px 15px;color:#e6752b;font-weight:bold;font-size:15px;font-family:NanumBarunGothic;background:url('/images/global/blOrg.png') no-repeat 0 25px;}
+.basicRecipe .cookInfo{margin-left:14px;}
+.basicRecipe .cookInfo li{margin:0 0 5px 54px;text-indent:-54px;line-height:18px;}
+.basicRecipe .cookProcess{margin-left:14px;}
+.basicRecipe .cookProcess li{position:relative;margin:0 0 20px;padding:2px 0 0 22px;vertical-align:top;overflow:hidden;}
+.basicRecipe .cookProcess li .num{position:absolute;left:0;top:0;width:16px;height:12px;padding:1px 0 0;color:#fff;text-align:center;font-style:normal;font-weight:bold;border:1px solid #930101;background:#b72b00;box-shadow:inset 1px 1px 0 #c94e23;}
+.basicRecipe .cookProcess li .text{float:left;width:480px;}
+.basicRecipe .cookProcess li .imgArea{float:right;vertical-align:top;}
+.basicRecipe .cookProcess li .imgArea img{padding:1px;width:125px;height:90px;vertical-align:top;border:1px solid #ccc;}
+.basicRecipe .cookProcess li .tipBox{margin:5px 0 0;}
+.basicRecipe .cookProcess li .import img{padding-left:0;}
+.basicRecipe .cookProcess li .tipOpen{margin-left:0;}
+.tipBox{overflow:hidden;}
+.tipBox + .tipBox{margin-top:15px !important;}
+.tipBox .import{display:block;clear:none;}
+.tipBox .tipOpen{max-width: 450px; position:relative;float:left;width:auto;height:auto;margin:5px 0 0 10px;padding-bottom:8px;background:none;border:1px solid #fe6000;}
+.tipBox .tipOpen:before{content:"";position:absolute;left:25px;top:-4px;width:6px;height:4px;background:url('/images/util/bgTip.gif') no-repeat 0 0;}

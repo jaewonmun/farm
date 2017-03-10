@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="SellList">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="sellListSerarchVO" type="egovframework.farm.sell.service.SellListDefaultVO"/>
+	
+	<resultMap id="sellList" class="egovframework.farm.sell.service.SellListVO">
+		<result property="sellCode" column="SELL_CODE" columnIndex="1"/>
+		<result property="mbrId" column="MBR_ID" columnIndex="2"/>
+		<result property="itemCode" column="ITEM_CODE" columnIndex="3"/>
+		<result property="sellDate" column="SELL_DATE" columnIndex="4"/>
+		<result property="sumamt" column="SUMAMT" columnIndex="5"/>
+		<result property="sellUnitCode" column="SELL_UNIT_CODE" columnIndex="6"/>
+		<result property="price" column="PRICE" columnIndex="7"/>
+		<result property="coname" column="CONAME" columnIndex="8"/>
+	</resultMap>
+	
+	<insert id="sellListDAO.insertSellList_S">
+		<![CDATA[
+			INSERT INTO SELL_LIST 
+				( SELL_CODE
+				  , MBR_ID
+				  , ITEM_CODE
+				  , SELL_DATE
+				  , SUMAMT
+				  , SELL_UNIT_CODE
+				  , PRICE
+				  , CONAME )
+			VALUES ( SELL_LIST_SEQ.NEXTVAL
+				  , #mbrId#
+				  , #itemCode#
+				  , TO_DATE(#sellDate#,'YYYYMMDD')
+				  , #sumamt#
+				  , #sellUnitCode#
+				  , #price#
+				  , #coname# )
+		]]>
+	</insert>
+	
+	<update id="sellListDAO.updateSellList_S">
+		<![CDATA[
+			UPDATE SELL_LIST
+			SET SELL_CODE=#sellCode#
+				, MBR_ID=#mbrId#
+				, ITEM_CODE=#itemCode#
+				, SELL_DATE=#sellDate#
+				, SUMAMT=#sumamt#
+				, SELL_UNIT_CODE=#sellUnitCode#
+				, PRICE=#price#
+				, CONAME=#coname#
+						WHERE SELL_CODE=#sellCode#
+				]]>
+	</update>
+	
+	<delete id="sellListDAO.deleteSellList_S">
+		<![CDATA[
+			DELETE FROM SELL_LIST 
+						WHERE SELL_CODE=#sellCode#
+				]]>
+	</delete>
+	
+	<select id="sellListDAO.selectSellList_S" resultMap="sellList">
+		<![CDATA[
+			SELECT
+				SELL_CODE
+				, MBR_ID
+				, ITEM_CODE
+				, SELL_DATE
+				, SUMAMT
+				, SELL_UNIT_CODE
+				, PRICE
+				, CONAME
+			FROM SELL_LIST
+						WHERE SELL_CODE=#sellCode#
+				]]>
+	</select>
+	
+	<select id="sellListDAO.selectSellListList_D" parameterClass="sellListSerarchVO" resultClass="egovMap">
+SELECT * FROM (
+	SELECT A.*, ROWNUM RNUM FROM (
+				 SELECT     	  I.LCODE ||'/'|| I.MCODE ||'/'|| I.SCODE as "itemName"
+								, TO_CHAR(S.SELL_DATE,'YY/MM/DD') as "sellDate"
+								, S.SUMAMT as "sumamt"
+								, S.SELL_UNIT_CODE as "sellUnit"
+								, S.PRICE as "price"
+								, S.CONAME as "coname"
+								, S.SELL_CODE as "sellCode"
+						FROM SELL_LIST S JOIN ITEM I
+                ON(S.ITEM_CODE =I.ITEM_CODE)
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					S.SELL_CODE = #searchKeyword#
+				</isEqual>
+				<isNotEmpty property="mbrId">
+					AND S.MBR_ID = #mbrId#
+				</isNotEmpty>
+				<isNotEmpty property="sellDateMin">
+					<![CDATA[
+						AND S.SELL_DATE >= to_date(#sellDateMin#,'yyyymmdd') 
+					]]>
+				</isNotEmpty>
+				<isNotEmpty property="sellDateMax">
+					<![CDATA[
+						AND S.SELL_DATE <= to_date(#sellDateMax#,'yyyymmdd') +1 
+					]]>
+				</isNotEmpty>
+					ORDER BY 
+						S.SELL_CODE DESC
+		
+						<![CDATA[					
+					) A WHERE ROWNUM <= #lastIndex#
+				)WHERE RNUM > #firstIndex#
+				]]>
+	</select>	
+	<select id="sellListDAO.selectSellListListTotCnt_S" parameterClass="sellListSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM SELL_LIST
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SELL_CODE = #searchKeyword#
+			</isEqual>
+			<isNotEmpty property="sellDateMin">
+				<![CDATA[
+					AND SELL_DATE >= to_date(#sellDateMin#,'yyyymmdd') 
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="sellDateMax">
+				<![CDATA[
+					AND SELL_DATE <= to_date(#sellDateMax#,'yyyymmdd') +1 
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="mbrId">
+					AND MBR_ID = #mbrId#
+			</isNotEmpty>
+	</select>
+	
+	<!-- 상위 5종의 판매실적 구하기 -->
+	<select id="sellListDAO.sellListTop5" parameterClass="sellListSerarchVO" resultClass="egovMap">
+		SELECT A.*
+		FROM (  SELECT I.SCODE as "itemName" ,SUM(S.PRICE) as "price"
+				FROM SELL_LIST S JOIN ITEM I ON(S.ITEM_CODE =I.ITEM_CODE)
+				WHERE 1=1
+				AND  TO_CHAR(ADD_MONTHS(SYSDATE,-1),'MM') = TO_CHAR(S.SELL_DATE,'MM')
+				<isNotEmpty property="mbrId">
+						AND MBR_ID = #mbrId#
+				</isNotEmpty>
+				GROUP BY S.ITEM_CODE, I.SCODE
+				ORDER BY 2 DESC) A
+		<![CDATA[
+		WHERE ROWNUM < 6
+		]]>
+	</select>
+	<!-- 3일동안의 판매실적 구하기 -->
+	<select id="sellListDAO.sellList3day" parameterClass="sellListSerarchVO" resultClass="egovMap">
+		SELECT SUM(S.PRICE) as "price",TO_CHAR(S.SELL_DATE,'MM-DD') as "sellDate"
+		FROM SELL_LIST S JOIN ITEM I ON(S.ITEM_CODE =I.ITEM_CODE)
+		WHERE 1=1
+		<isNotEmpty property="mbrId">
+			AND S.MBR_ID = #mbrId#
+		</isNotEmpty>
+		<isNotEmpty property="sellDateMin">
+			<![CDATA[
+				AND S.SELL_DATE >= to_date(#sellDateMin#,'yyyymmdd') -2
+			]]>
+		</isNotEmpty>
+		<isNotEmpty property="sellDateMax">
+			<![CDATA[
+				AND S.SELL_DATE <= to_date(#sellDateMax#,'yyyymmdd') +1 
+			]]>
+		</isNotEmpty>
+		GROUP BY TO_CHAR(S.SELL_DATE,'MM-DD')
+		ORDER BY 2 DESC
+	</select>
+	
+	<!-- 지난주의 판매실적 구하기 -->
+	<select id="sellListDAO.weekStat" parameterClass="sellListSerarchVO" resultClass="egovMap">
+	select (select sum(price)from sell_list where mbr_id = #mbrId# and sell_date = trunc(sysdate-6-to_number(to_char(sysdate, 'D')))) as "sun",
+	       (select sum(price)from sell_list where mbr_id = #mbrId# and sell_date = trunc(sysdate-5-to_number(to_char(sysdate, 'D')))) as "mon",
+	       (select sum(price)from sell_list where mbr_id = #mbrId# and sell_date = trunc(sysdate-4-to_number(to_char(sysdate, 'D')))) as "tus",
+	       (select sum(price)from sell_list where mbr_id = #mbrId# and sell_date = trunc(sysdate-3-to_number(to_char(sysdate, 'D')))) as "wed",
+	       (select sum(price)from sell_list where mbr_id = #mbrId# and sell_date = trunc(sysdate-2-to_number(to_char(sysdate, 'D')))) as "thr",
+	       (select sum(price)from sell_list where mbr_id = #mbrId# and sell_date = trunc(sysdate-1-to_number(to_char(sysdate, 'D')))) as "fri",
+	       (select sum(price)from sell_list where mbr_id = #mbrId# and sell_date = trunc(sysdate-0-to_number(to_char(sysdate, 'D')))) as "sat"
+	from dual
+	
+	</select>
+	<!-- 리포트 관련 쿼리 -->
+	<!-- 판매리스트  리포트-->
+	<select id="sellListDAO.selectselllistReport_S" parameterClass="sellListSerarchVO" resultClass="egovMap">
+				SELECT
+								SELL_DATE
+								, CONAME
+								, PRICE
+						FROM SELL_LIST
+				WHERE 1=1
+				<isNotEmpty property="mbrId">
+				AND MBR_ID = #mbrId#
+				</isNotEmpty>
+				<isNotEmpty property="sellDate">
+				AND TRUNC(SELL_DATE)=TO_DATE(#sellDate#,'yy/mm/dd')
+				</isNotEmpty>
+	</select>
+	
+<!-- 
+SELECT
+     SELL_LIST."SELL_DATE" AS SELL_LIST_SELL_DATE,
+     SELL_LIST."CONAME" AS SELL_LIST_CONAME,
+     SELL_LIST."PRICE" AS SELL_LIST_PRICE
+FROM
+     "SELL_LIST" SELL_LIST
+WHERE
+     SELL_LIST."MBR_ID" = '12345'
+ and  trunc(SELL_LIST."SELL_DATE")=to_date('16/12/09','yy/mm/dd')
+ -->
+
+</sqlMap>

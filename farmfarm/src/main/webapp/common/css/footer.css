@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+
+.userTop{padding:30px 0}
+.agrBox{height:261px}
+.agrBox .fludTab{width:100%; margin-bottom:0; height:auto}
+.agrBox .fludTab>li{width:239px; height:auto}
+
+.agrBox .ctn{display:none; position:relative; width:687px; height:196px; border:1px solid #ccc; border-top:none; background:#fff; overflow-y:auto; overflow-x:hidden; padding:15px; color:#5d5d5d; line-height:1.8}
+.agrBox .ctn h5{font-weight:bold; padding:5px 0}
+.agrBox .ctn li{padding:0; color:#878787; background:none; width:100%; height:auto; float:none; line-height:1.8 }
+.agrBox .ctn p{line-height:1.8; padding:10px 0}
+.agrBox .ctn1{display:block}
+.agrBox .ctn2{margin-left:-240px}
+.agrBox .ctn3{margin-left:-480px}
+
+/* 개인정보처리방침 */
+.con_msg_box {
+	border-width: 1px; border-style: solid; border-color: rgb(237, 237, 237) rgb(221, 221, 221) rgb(221, 221, 221); margin: 5px 0px 0px; padding: 18px 16px 15px 24px; line-height: 17px; letter-spacing: -1px;
+}
+
+
+.cfim{text-align:right; padding:10px 0}
+
+.fullText {padding:20px 0; color:#878787}
+.fullText h3{color:#ff6c00; font: 17px '나눔바른고딕', NanumBarunGothic , Tahoma; padding:35px 0 25px 0}
+.fullText h4{font-weight:bold; padding:5px 0; color:#333}
+.fullText li, .fullText p{padding:0 0 10px 20px}
+.fullText li, .fullText p{line-height:1.8}
